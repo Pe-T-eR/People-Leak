@@ -12,6 +12,11 @@ public class Controls : MonoBehaviour {
     [Tooltip("Defines a relative movement speed")]
     public float MovementSpeed;
 
+    public float maxX;
+    public float minX;
+    public float maxY;
+    public float minY;
+
 
     // Use this for initialization
     void Start () {
@@ -29,9 +34,10 @@ public class Controls : MonoBehaviour {
             transform.Rotate(Vector3.back, RoationSpeed * Time.deltaTime);
 
         // Moving forward
-	    var newPos = transform.position + transform.up * MovementSpeed * Time.deltaTime;
+	    var newPos = transform.position + transform.right * -1 * MovementSpeed * Time.deltaTime;
 
-
-	    transform.position = newPos;
+        if (newPos.x > minX && newPos.x < maxX &&
+            newPos.y > minY && newPos.y < maxY)
+	        transform.position = newPos;
 	}
 }
