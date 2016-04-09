@@ -19,7 +19,7 @@ public class RefugeeContainer : MonoBehaviour {
         refugees = new List<Refugee>();
 
         parent = GetComponentInParent<Boat>();
-
+        capacity = parent.Capacity;
 	}
 	
     /// <summary>
