@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
 
@@ -54,10 +56,17 @@ public class GameMaster : MonoBehaviour {
 			foreach (var winningPlayer in winningPlayers) {
 				winnerText += "\n" + winningPlayer;
 			}
+		    StartCoroutine(RestartScene());
 		}
 	}
 
 	public void ResetGame() {
 		winningText.enabled = false;
 	}
+
+    private static IEnumerator RestartScene()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    } 
 }
