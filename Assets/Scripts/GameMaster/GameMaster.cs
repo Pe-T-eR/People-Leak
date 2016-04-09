@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Configuration;
 using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour {
@@ -14,8 +15,15 @@ public class GameMaster : MonoBehaviour {
 	public int goalScore;
 	public Text winningText;
 
+    public GameObject GameMusic;
+
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
+	    var music = GameObject.FindGameObjectWithTag(Constants.Tags.Music);
+	    if (music == null)
+	        DontDestroyOnLoad(Instantiate(GameMusic).transform);
+
 		ResetGame();
 	}
 	

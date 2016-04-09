@@ -7,6 +7,7 @@
             public const string Player = "Player";
             public const string Land = "Land";
             public const string Wall = "Wall";
+            public const string Music = "Music";
         }
 
         public class DefaultValues
