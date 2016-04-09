@@ -24,7 +24,7 @@
             public const double RefugeeLifespan = 30f;
 
             public const double DumpCooldown = 1f;
-            public const float DumpBoost = 0.5;
+            public const float DumpBoost = 0.5f;
             public const float DumpDuration = 5f;
 
             // Dock
