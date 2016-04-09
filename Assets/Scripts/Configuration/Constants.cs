@@ -18,6 +18,10 @@
 
             //Refugee
             public const int RefugeeValue = 10;
+
+            // Dock
+            public const float WaitTimeBetweenShipAdd = 1f;
+            public const float WaitTimeBetweenDockAdd = 5f;
         }
     }
 }

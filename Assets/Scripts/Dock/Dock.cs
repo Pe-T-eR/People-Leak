@@ -6,23 +6,22 @@ namespace Assets.Scripts.Dock
 {
     public class Dock : MonoBehaviour
     {
-        protected List<GameObject> DockedShips;
+        protected List<RefugeeContainer> DockedShips;
 
         protected void Start()
         {
-
-            DockedShips = new List<GameObject>();
+            DockedShips = new List<RefugeeContainer>();
         }
 
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
-                DockedShips.Add(other.gameObject);
+                DockedShips.Add(other.GetComponent<RefugeeContainer>());
         }
         void OnTriggerExit2D(Collider2D other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
-                DockedShips.Remove(other.gameObject);
+                DockedShips.Remove(other.GetComponent<RefugeeContainer>());
         }
     }
 }

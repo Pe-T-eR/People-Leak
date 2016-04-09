@@ -1,18 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Configuration;
 using Assets.Scripts.Dock;
 using UnityEngine;
 
 // ReSharper disable once CheckNamespace
 public class AfricanDock : Dock
 {
-
-    private Dictionary<GameObject, float> _waitDictionary;
-    private const long WaitTimeBetweenAdd = 1;
+    public int MaxRefugees;
+    public int NumberOfRefugees;
+    
+    private Dictionary<RefugeeContainer, float> _waitDictionary;
+    private List<Refugee> _refugees; 
 
     new void Start()
     {
         base.Start();
-        _waitDictionary = new Dictionary<GameObject, float>();
+        _waitDictionary = new Dictionary<RefugeeContainer, float>();
+        _refugees = new List<Refugee>();
+        StartCoroutine(SpawnRefugees());
     }
 
 	// Update is called once per frame
@@ -24,9 +31,26 @@ public class AfricanDock : Dock
 	        _waitDictionary.TryGetValue(ship, out time);
 
 	        if (!(time < Time.time)) continue;
+            if (!_refugees.Any()) continue;
 
-	        Debug.Log("Adding refugee to Player: " + ship.name);
-	        _waitDictionary[ship] = Time.time + WaitTimeBetweenAdd;
-	    }
+	        ship.TryAddRefugee(_refugees[0]);
+            _refugees.RemoveAt(0);
+
+	        _waitDictionary[ship] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
+            NumberOfRefugees = _refugees.Count;
+        }
 	}
+
+    private IEnumerator SpawnRefugees()
+    {
+        while (true)
+        {
+            if (_refugees.Count < MaxRefugees)
+            {
+                _refugees.Add(new Refugee());
+                NumberOfRefugees = _refugees.Count;
+            }
+            yield return new WaitForSeconds(Constants.DefaultValues.WaitTimeBetweenDockAdd);
+        }
+    }
 }
