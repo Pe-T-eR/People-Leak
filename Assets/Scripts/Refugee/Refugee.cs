@@ -1,57 +1,70 @@
-﻿using UnityEngine;
-using Assets.Scripts.Configuration;
+﻿using Assets.Scripts.Configuration;
 using Assets.Scripts.Dock;
+using UnityEngine;
 
-public class Refugee : MonoBehaviour {
+namespace Assets.Scripts.Refugee
+{
+    public class Refugee : MonoBehaviour {
 
-    public int Value;
-    public bool Drowning;
-    public bool Alive;
-    public Dock Destination;
+        public int Value;
+        public bool Drowning;
+        public bool Alive;
+        private EuropeanDock _destination;
 
-    private double _lifetime;
-
-	// Use this for initialization
-	void Start () {
-
-        Value = Constants.DefaultValues.RefugeeValue;
-        _lifetime = Constants.DefaultValues.RefugeeLifespan;
-        Drowning = false;
-
-        var destinations = GetComponents<EuropeanDock>();
-        var Destination = destinations[Random.Range(0, destinations.Length)];
-	}
-	
-	// Update is called once per frame
-	void Update () {
-
-        //Only update the living
-        if (Alive && Drowning)
+        public EuropeanDock Destination
         {
-            //Decrease liftime
-            _lifetime -= Time.deltaTime;
-
-            //Are we dead yet?
-            if (_lifetime <= 0)
+            get
             {
-                Alive = false;
+                if (_destination == null)
+                {
+                    var destinations = FindObjectsOfType<EuropeanDock>();
+                    _destination = destinations[Random.Range(0, destinations.Length)];
+                }
+                return _destination;
+            } 
+        }
+
+        private double _lifetime;
+
+        // Use this for initialization
+        void Start () {
+
+            Value = Constants.DefaultValues.RefugeeValue;
+            _lifetime = Constants.DefaultValues.RefugeeLifespan;
+            Drowning = false;            
+        }
+	
+        // Update is called once per frame
+        void Update () {
+
+            //Only update the living
+            if (Alive && Drowning)
+            {
+                //Decrease liftime
+                _lifetime -= Time.deltaTime;
+
+                //Are we dead yet?
+                if (_lifetime <= 0)
+                {
+                    Alive = false;
+                }
             }
         }
-	}
 
-    /// <summary>
-    /// Tells the refugee that he has been dumped of the boat, you heartless bastard.
-    /// </summary>
-    void Dump()
-    {
-        Drowning = true;
-    }
+        /// <summary>
+        /// Tells the refugee that he has been dumped of the boat, you heartless bastard.
+        /// </summary>
+        void Dump()
+        {
+            Drowning = true;
+        }
 
-    /// <summary>
-    /// Save a refugee from the sea by inviting on board. What a nice person you are.
-    /// </summary>
-    void PickUp()
-    {
-        Drowning = false;
+        /// <summary>
+        /// Save a refugee from the sea by inviting on board. What a nice person you are.
+        /// </summary>
+        void PickUp()
+        {
+            Drowning = false;
+        }
     }
 }

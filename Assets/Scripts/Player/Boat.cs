@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
-using System;
 
 public class Boat : MonoBehaviour {
 

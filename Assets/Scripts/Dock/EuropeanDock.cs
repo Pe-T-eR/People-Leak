@@ -7,6 +7,7 @@ namespace Assets.Scripts.Dock
     public class EuropeanDock : Dock
     {
         private Dictionary<RefugeeContainer, float> _waitDictionary;
+        public Color DockColor;
 
         // Use this for initialization
         new void Start()
