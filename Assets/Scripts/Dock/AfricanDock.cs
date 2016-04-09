@@ -25,18 +25,20 @@ public class AfricanDock : Dock
 	// Update is called once per frame
 	void Update ()
 	{
-	    foreach (var ship in DockedShips)
+	    foreach (var ship in DockedBoats)
 	    {
+            var container = ship.GetComponent<RefugeeContainer>();
+                        
 	        float time;
-	        _waitDictionary.TryGetValue(ship, out time);
+	        _waitDictionary.TryGetValue(container, out time);
 
 	        if (!(time < Time.time)) continue;
             if (!_refugees.Any()) continue;
 
-	        ship.TryAddRefugee(_refugees[0]);
+	        container.TryAddRefugee(_refugees[0]);
             _refugees.RemoveAt(0);
 
-	        _waitDictionary[ship] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
+	        _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
             NumberOfRefugees = _refugees.Count;
         }
 	}
