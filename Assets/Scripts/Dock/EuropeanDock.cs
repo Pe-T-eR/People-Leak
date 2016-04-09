@@ -8,12 +8,16 @@ namespace Assets.Scripts.Dock
     {
         private Dictionary<RefugeeContainer, float> _waitDictionary;
         public Color DockColor;
+		public GameObject Billboard;
 
         // Use this for initialization
         new void Start()
         {
             base.Start();
             _waitDictionary = new Dictionary<RefugeeContainer, float>();
+			if (Billboard != null) {
+				Billboard.GetComponent<Renderer>().material.color = DockColor;
+			}
         }
 
         // Update is called once per frame

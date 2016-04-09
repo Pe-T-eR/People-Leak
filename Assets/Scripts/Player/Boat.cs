@@ -20,6 +20,8 @@ public class Boat : MonoBehaviour {
     public RefugeeContainer RefugeeContainer;
     private Controls _movementControls;
 
+	public GameObject[] UpgradeBodies;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -33,6 +35,7 @@ public class Boat : MonoBehaviour {
         AddSpeedDelay = 1f;
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
+		ShowEngineUpgrade(EngineLevel);
 	}
 	
 	public void OnTriggerEnter2D()
@@ -62,11 +65,25 @@ public class Boat : MonoBehaviour {
 
     public void UpgradeEngine()
     {
-        if (Score >= EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier)
+		if (Score >= EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier && EngineLevel < UpgradeBodies.Length)
         {
             Score -= EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier;
             MaxSpeed += Constants.DefaultValues.EngineUpgradeEffect;
             EngineLevel++;
+			ShowEngineUpgrade(EngineLevel);
         }
     }
+
+	protected void ShowEngineUpgrade(int level) {
+		for (var i = 0; i < UpgradeBodies.Length; i++) {
+			var upgradeBody = UpgradeBodies[i];
+			if (upgradeBody == null) {
+				continue;
+			}
+			var renderers = upgradeBody.GetComponentsInChildren<Renderer>();
+			foreach (var renderer in renderers) {
+				renderer.enabled = i == level - 1;
+			}
+		}
+	}
 }
