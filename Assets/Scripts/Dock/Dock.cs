@@ -1,15 +1,28 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using Assets.Scripts.Configuration;
+using UnityEngine;
 
-public class Dock : MonoBehaviour {
+namespace Assets.Scripts.Dock
+{
+    public class Dock : MonoBehaviour
+    {
+        protected List<GameObject> DockedShips;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        protected void Start()
+        {
+
+            DockedShips = new List<GameObject>();
+        }
+
+        void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == Constants.Tags.Player)
+                DockedShips.Add(other.gameObject);
+        }
+        void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.tag == Constants.Tags.Player)
+                DockedShips.Remove(other.gameObject);
+        }
+    }
 }
