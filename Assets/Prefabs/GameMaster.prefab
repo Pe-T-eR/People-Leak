@@ -42,6 +42,9 @@ MonoBehaviour:
   playerNames:
   - Red
   - Blue
+  playerColors:
+  - {r: 1, g: 0, b: 0, a: 0}
+  - {r: 0, g: 1, b: 0, a: 0}
   playerBoats:
   - {fileID: 0}
   - {fileID: 0}
@@ -53,6 +56,7 @@ MonoBehaviour:
   - {fileID: 0}
   goalScore: 500
   winningText: {fileID: 0}
+  GameMusic: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

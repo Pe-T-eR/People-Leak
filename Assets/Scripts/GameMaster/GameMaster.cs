@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameMaster : MonoBehaviour {
 
 	public string[] playerNames;
+	public Color[] playerColors;
 	public Boat[] playerBoats;
 	public Text[] playerScores;
 	public Text[] playerRefugeeCounters;
@@ -25,6 +26,23 @@ public class GameMaster : MonoBehaviour {
 	        DontDestroyOnLoad(Instantiate(GameMusic).transform);
 
 		ResetGame();
+
+		for (var i = 0; i < playerBoats.Length; i++) {
+			if (playerColors.Length <= i) {
+				break;
+			}
+			var boatRenderers = playerBoats[i].GetComponents<Renderer>();
+			foreach (var renderer in boatRenderers) {
+				renderer.material.color = playerColors[i];
+			}
+
+			if (playerScores.Length > i && playerScores[i] != null) {
+				playerScores[i].color = playerColors[i];
+			}
+			if (playerRefugeeCounters.Length > 1 && playerRefugeeCounters[i] != null) {
+				playerRefugeeCounters[i].color = playerColors[i];
+			}
+		}
 	}
 	
 	// Update is called once per frame
