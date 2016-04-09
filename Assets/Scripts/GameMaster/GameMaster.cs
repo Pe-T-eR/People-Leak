@@ -10,6 +10,7 @@ public class GameMaster : MonoBehaviour {
 
 	public string[] playerNames;
 	public Color[] playerColors;
+	public GameObject[] boatBodies;
 	public Boat[] playerBoats;
 	public Text[] playerScores;
 	public Text[] playerRefugeeCounters;
@@ -27,11 +28,12 @@ public class GameMaster : MonoBehaviour {
 
 		ResetGame();
 
-		for (var i = 0; i < playerBoats.Length; i++) {
+		for (var i = 0; i < boatBodies.Length; i++) {
 			if (playerColors.Length <= i) {
 				break;
 			}
-			var boatRenderers = playerBoats[i].GetComponents<Renderer>();
+			var boatRenderers = boatBodies[i].gameObject.GetComponentsInChildren<Renderer>();
+			//var boatRenderers = playerBoats[i].GetComponents<Renderer>();
 			foreach (var renderer in boatRenderers) {
 				renderer.material.color = playerColors[i];
 			}

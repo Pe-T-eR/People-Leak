@@ -43,8 +43,11 @@ MonoBehaviour:
   - Red
   - Blue
   playerColors:
-  - {r: 1, g: 0, b: 0, a: 0}
-  - {r: 0, g: 1, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0, a: 1}
+  boatBodies:
+  - {fileID: 0}
+  - {fileID: 0}
   playerBoats:
   - {fileID: 0}
   - {fileID: 0}
@@ -54,9 +57,9 @@ MonoBehaviour:
   playerRefugeeCounters:
   - {fileID: 0}
   - {fileID: 0}
-  goalScore: 500
+  goalScore: 100
   winningText: {fileID: 0}
-  GameMusic: {fileID: 0}
+  GameMusic: {fileID: 117226, guid: 2d75751481b515540b9b0b8f2d98438b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
