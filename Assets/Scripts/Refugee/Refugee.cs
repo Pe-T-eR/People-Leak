@@ -12,6 +12,13 @@ namespace Assets.Scripts.Refugee
 
         private GameMaster _gameMaster;
         private EuropeanDock _destination;
+        private ColorControl _colorControl;
+        private ColorControl ColorControl {
+            get {
+                return _colorControl ??
+                       (_colorControl = gameObject.transform.FindChild("RefugeeBody").GetComponent<ColorControl>());
+            }
+        }
 
         public EuropeanDock Destination
         {
@@ -21,6 +28,7 @@ namespace Assets.Scripts.Refugee
                 {
                     var destinations = FindObjectsOfType<EuropeanDock>();
                     _destination = destinations[Random.Range(0, destinations.Length)];
+                    ColorControl.SetColor(_destination.DockColor);
                 }
                 return _destination;
             }
@@ -50,7 +58,7 @@ namespace Assets.Scripts.Refugee
                 //Are we dead yet?
                 if (_lifetime <= 0)
                 {
-                    Destroy(this);
+                    Destroy(gameObject);
                 }
             }
         }
@@ -58,8 +66,10 @@ namespace Assets.Scripts.Refugee
         /// <summary>
         /// Tells the refugee that he has been dumped of the boat, you heartless bastard.
         /// </summary>
-        public void Dump()
+        public void Dump(Vector3 position)
         {
+            transform.position = position;
+            transform.FindChild("RefugeeBody").gameObject.SetActive(true);
             var audioHandler = _gameMaster.GetComponent<AudioHandler>();
             audioHandler.Play(audioHandler.DumpSound);
 
@@ -71,7 +81,17 @@ namespace Assets.Scripts.Refugee
         /// </summary>
         public void PickUp()
         {
+            transform.FindChild("RefugeeBody").gameObject.SetActive(false);
+            transform.position = Constants.DefaultValues.AwayPosition;
             Drowning = false;
+        }
+
+        public void OnTriggerEnter(Collider other)
+        {
+            if (other.tag == Constants.Tags.Player)
+                if (other.gameObject.GetComponent<RefugeeContainer>().TryAddRefugee(this))
+                    PickUp();
+
         }
     }
 }
