@@ -49,7 +49,7 @@ namespace Assets.Scripts.Dock
                 if (!(time < Time.time)) continue;
                 if (!_refugees.Any()) continue;
 
-                container.TryAddRefugee(_refugees[0]);
+                if(!container.TryAddRefugee(_refugees[0])) continue;
                 _refugees.RemoveAt(0);
 
                 _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
