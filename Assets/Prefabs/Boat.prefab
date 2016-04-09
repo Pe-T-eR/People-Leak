@@ -15,7 +15,7 @@ GameObject:
   - 135: {fileID: 13550894}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95376efbc5227c84ba7b506848eff86a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  capacity: 0
+  capacity: 10
 --- !u!114 &11466654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3234eaeed2591cf46acbaa0644a515be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Capacity: 0
+  Capacity: 10
   MaxSpeed: 0
   RotationSpeed: 0
   Score: 0
@@ -164,7 +164,7 @@ MonoBehaviour:
   LeftKey: 
   RightKey: 
   RoationSpeed: 76.2
-  MovementSpeed: 50
+  MovementSpeed: 100
   RayDistance: 0
 --- !u!135 &13550894
 SphereCollider:

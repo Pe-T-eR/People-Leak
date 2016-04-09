@@ -222,15 +222,61 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 110078, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_Name
-      value: ReadBoat
+      value: RedBoat
       objectReference: {fileID: 0}
-    - target: {fileID: 11466654, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
-      propertyPath: Capacity
-      value: 10
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1001 &297904262
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.47
       objectReference: {fileID: 0}
-    - target: {fileID: 11410250, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
-      propertyPath: capacity
-      value: 10
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 15.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: LeftKey
+      value: left
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: RightKey
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 110078, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: m_Name
+      value: BlueBoat
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
@@ -480,8 +526,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1479065723}
-  m_LocalRotation: {x: 0.4186661, y: -0.569841, z: 0.41866615, w: 0.5698409}
-  m_LocalPosition: {x: 14.2, y: 33.2, z: 0.9}
+  m_LocalRotation: {x: 0.3085121, y: -0.63625497, z: 0.30851215, w: 0.63625485}
+  m_LocalPosition: {x: 23.6, y: 25.79, z: 0.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
