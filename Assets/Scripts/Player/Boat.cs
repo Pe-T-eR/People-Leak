@@ -15,6 +15,13 @@ public class Boat : MonoBehaviour {
     public float AddSpeedDelay;
     public int Score;
 
+    public GameObject DropPoint;
+
+    public Transform DropPosition {
+        get { return _movementControls.DropPoint; }
+        set { _movementControls.DropPoint = value; }
+    }
+
     public int CapacityLevel;
     public int EngineLevel;
     public int AddSpeedLevel;
@@ -40,6 +47,9 @@ public class Boat : MonoBehaviour {
         AddSpeedDelay = 1f;
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
+
+	    DropPosition = DropPoint.transform;
+
 		ShowEngineUpgrade(EngineLevel);
 
         _gameMaster = FindObjectOfType<GameMaster>();
@@ -61,10 +71,6 @@ public class Boat : MonoBehaviour {
                 _audioHandler.Play(_audioHandler.CollisionSound);
             }
         }
-        else if(other.CompareTag(Constants.Tags.Refugee))
-        {
-            RefugeeCollision(other);
-        }
     }
 
     private void BoatCollision(float impactForce)
@@ -80,7 +86,7 @@ public class Boat : MonoBehaviour {
 
                 if(droppedRefugee != null)
                 {
-                    droppedRefugee.Dump();
+                    droppedRefugee.Dump(transform.TransformPoint(DropPosition.position));
                 }
             }
         }

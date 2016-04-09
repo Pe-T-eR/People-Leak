@@ -17,7 +17,9 @@ namespace Assets.Scripts.Player
         public float MovementSpeed;
         [Tooltip("How close the boat can get to a blocking element")]
         public float RayDistance;
-        
+
+        public Transform DropPoint { get; set; }
+
 
         private Rigidbody _rb;
         private Boat _boat;
@@ -52,7 +54,9 @@ namespace Assets.Scripts.Player
 
                 if(refugee != null)
                 {
-                    refugee.Dump();
+                    var dropPos = transform.position + transform.forward * -2 + new Vector3(0,0.6f,0);
+
+                    refugee.Dump(dropPos);
                     _lastDump = Time.time;
                     _dumpBoost = true;
                 }

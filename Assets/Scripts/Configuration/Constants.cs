@@ -1,4 +1,6 @@
-﻿namespace Assets.Scripts.Configuration
+﻿using UnityEngine;
+
+namespace Assets.Scripts.Configuration
 {
     public class Constants  {
 
@@ -47,6 +49,8 @@
             
             // Coast guard
             public const float TimeBetweenRescue = 0.5f;
+
+            public static readonly Vector3 AwayPosition = new Vector3(0,0,60);
         }
     }
 }
