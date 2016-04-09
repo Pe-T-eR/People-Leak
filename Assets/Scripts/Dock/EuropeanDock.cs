@@ -17,14 +17,16 @@ namespace Assets.Scripts.Dock
         // Update is called once per frame
         void Update()
         {
-            foreach (var ship in DockedShips)
+            foreach (var ship in DockedBoats)
             {
+                var container = ship.GetComponent<RefugeeContainer>();
+
                 float time;
-                _waitDictionary.TryGetValue(ship, out time);
+                _waitDictionary.TryGetValue(container, out time);
 
                 if (!(time < Time.time)) continue;
 
-                var r = ship.RemoveRefugee();
+                var r = container.RemoveRefugee();
                 if(r == null) continue;
 
                 ship.gameObject.GetComponent<Boat>().Score += r.Value;
