@@ -39,6 +39,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d54417115cccc45859220aff8f7dad45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNames:
+  - Red
+  - Blue
   playerBoats:
   - {fileID: 0}
   - {fileID: 0}
@@ -48,6 +51,8 @@ MonoBehaviour:
   playerRefugeeCounters:
   - {fileID: 0}
   - {fileID: 0}
+  goalScore: 500
+  winningText: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
