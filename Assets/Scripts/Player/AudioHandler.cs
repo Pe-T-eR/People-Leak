@@ -5,6 +5,7 @@ public class AudioHandler : MonoBehaviour {
 
     public AudioClip DumpSound;
     public AudioClip PickupSound;
+    public AudioClip CollisionSound;
 
 	public void Play(AudioClip clip)
     {

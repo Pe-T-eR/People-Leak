@@ -30,10 +30,10 @@ public class Boat : MonoBehaviour {
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+	public void OnTriggerEnter2D()
+    {
+
+    }
 
     public void UpgradeCapacity()
     {
@@ -45,7 +45,7 @@ public class Boat : MonoBehaviour {
         }
     }
 
-    internal void UpgradeAddSpeed()
+    public void UpgradeAddSpeed()
     {
         if( Score >= AddSpeedLevel * Constants.DefaultValues.AddSpeedUpgradeCostModifier)
         {
