@@ -409,6 +409,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 495024}
+  - 135: {fileID: 13571226}
+  - 114: {fileID: 11497838}
   m_Layer: 0
   m_Name: UpgradeStationEngine
   m_TagString: Untagged
@@ -685,8 +687,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194908}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6600003, y: -1.264, z: 1.44}
+  m_LocalRotation: {x: 0, y: 0.31159264, z: 0, w: 0.9502158}
+  m_LocalPosition: {x: -6.87, y: 0.48, z: 2.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 480294}
@@ -1311,10 +1313,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ac5c6c54675a795419cbc7b7fa9b4a7d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   Priority: 128
@@ -1460,9 +1462,33 @@ Animation:
   m_Animations:
   - {fileID: 7400000, guid: e37db69fb80be6444b56dba3a5a29793, type: 3}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
+  m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11497838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b55957bdeb584c40b252d31ff64bcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Welder: {fileID: 167004}
+--- !u!135 &13571226
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 194908}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.64
+  m_Center: {x: 0.18, y: 0, z: 1.13}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

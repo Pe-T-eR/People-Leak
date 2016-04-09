@@ -10,13 +10,15 @@ namespace Assets.Scripts.Refugee
 
         public void SetColor(Color color)
         {
+            ensureMaterials();
             foreach (var material in _materials)
                 material.color = color;
         }
 
-        // Use this for initialization
-        void Start () {
-	        _materials = new List<Material>();
+        private void ensureMaterials()
+        {
+            if(_materials != null) return;
+            _materials = new List<Material>();
             foreach (var colorComp in ColeredComponents)
                 _materials.Add(colorComp.GetComponent<MeshRenderer>().material);
         }
