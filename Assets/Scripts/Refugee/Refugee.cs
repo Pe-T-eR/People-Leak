@@ -11,6 +11,7 @@ namespace Assets.Scripts.Refugee
         public bool Drowning;
 
         private GameMaster _gameMaster;
+        private AudioHandler _audioHandler;
         private EuropeanDock _destination;
 
         public EuropeanDock Destination
@@ -34,6 +35,7 @@ namespace Assets.Scripts.Refugee
             Value = Constants.DefaultValues.RefugeeValue;
             _lifetime = Constants.DefaultValues.RefugeeLifespan;
             _gameMaster = FindObjectOfType<GameMaster>();
+            _audioHandler = _gameMaster.GetComponent<AudioHandler>();
             Drowning = false;            
         }
 
@@ -60,8 +62,7 @@ namespace Assets.Scripts.Refugee
         /// </summary>
         public void Dump()
         {
-            var audioHandler = _gameMaster.GetComponent<AudioHandler>();
-            audioHandler.Play(audioHandler.DumpSound);
+            _audioHandler.Play(_audioHandler.DumpSound);
 
             Drowning = true;
         }

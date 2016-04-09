@@ -23,6 +23,7 @@ public class Boat : MonoBehaviour {
 
     private Controls _movementControls;
     private GameMaster _gameMaster;
+    private AudioHandler _audioHandler;
 
 	public GameObject[] UpgradeBodies;
 
@@ -40,7 +41,9 @@ public class Boat : MonoBehaviour {
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 		ShowEngineUpgrade(EngineLevel);
+
         _gameMaster = FindObjectOfType<GameMaster>();
+        _audioHandler = _gameMaster.GetComponent<AudioHandler>();
 	}
 	
 	public void OnTriggerEnter(Collider other)
@@ -55,8 +58,7 @@ public class Boat : MonoBehaviour {
             var impactForce = CalculateImpact(other.GetComponent<CoastGuardControl>());
             if(impactForce > 1f)
             {
-                var audioHandler = _gameMaster.GetComponent<AudioHandler>();
-                audioHandler.Play(audioHandler.CollisionSound);
+                _audioHandler.Play(_audioHandler.CollisionSound);
             }
         }
         else if(other.CompareTag(Constants.Tags.Refugee))
