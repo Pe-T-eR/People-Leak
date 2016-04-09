@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Assets.Scripts.Dock;
 using System.Collections.Generic;
+using System.Linq;
 
 public class RefugeeContainer : MonoBehaviour {
 
@@ -59,7 +60,7 @@ public class RefugeeContainer : MonoBehaviour {
     /// Please don't call this method while at sea.
     /// </summary>
     /// <returns></returns>
-    public Refugee RemoveRefugee()
+    public Refugee RemoveRefugee(EuropeanDock destination = null)
     {
         //Are there any refugees?
         if(GetCount() == 0)
@@ -70,10 +71,13 @@ public class RefugeeContainer : MonoBehaviour {
         else
         {
             //The refugee to return
-            var refugee = _refugees[0];
+            var refugee = destination == null ? _refugees[0] :_refugees.FirstOrDefault(r => r.Destination == destination);
 
             //Remove it from the container
-            _refugees.Remove(refugee);
+            if (refugee != null)
+            {
+                _refugees.Remove(refugee);
+            }
 
             //And return it
             return refugee;

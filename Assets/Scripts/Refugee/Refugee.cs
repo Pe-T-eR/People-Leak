@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
-using System.Collections;
+using Assets.Scripts.Dock;
 
 public class Refugee : MonoBehaviour {
 
     public int Value;
     public bool Drowning;
     public bool Alive;
+    public Dock Destination;
 
     private double _lifetime;
 
@@ -17,6 +18,8 @@ public class Refugee : MonoBehaviour {
         _lifetime = Constants.DefaultValues.RefugeeLifespan;
         Drowning = false;
 
+        var destinations = GetComponents<EuropeanDock>();
+        var Destination = destinations[Random.Range(0, destinations.Length)];
 	}
 	
 	// Update is called once per frame
@@ -45,7 +48,7 @@ public class Refugee : MonoBehaviour {
     }
 
     /// <summary>
-    /// Safe a refugee from the sea by inviting on board. What a nice person you are.
+    /// Save a refugee from the sea by inviting on board. What a nice person you are.
     /// </summary>
     void PickUp()
     {

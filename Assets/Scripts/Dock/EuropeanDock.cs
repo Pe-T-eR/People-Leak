@@ -27,7 +27,7 @@ namespace Assets.Scripts.Dock
 
                 if (!(time < Time.time)) continue;
 
-                var r = container.RemoveRefugee();
+                var r = container.RemoveRefugee(this);
                 if(r == null) continue;
 
                 _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenDockRemove;
