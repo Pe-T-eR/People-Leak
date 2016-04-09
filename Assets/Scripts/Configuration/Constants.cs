@@ -24,6 +24,13 @@
             public const float WaitTimeBetweenShipAdd = 1f;
             public const float WaitTimeBetweenDockAdd = 5f;
             public const float WaitTimeBetweenDockRemove = 3f;
+
+            //Upgrade
+            public const float WaitForCapacityUpgrade = 2f;
+            public const float WaitForEngineUpgrade = 2f;
+            public const int CapacityUpgradeCostModifier = 10;
+            public const int EngineUpgradeCostModifier = 10;
+            
         }
     }
 }
