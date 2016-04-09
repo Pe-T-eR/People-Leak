@@ -9,6 +9,7 @@ namespace Assets.Scripts.Dock
     public class AfricanDock : Dock
     {
         private int _numberOfrefugees;
+
         public int NumberOfRefugees
         {
             get { return _numberOfrefugees; }
@@ -23,16 +24,16 @@ namespace Assets.Scripts.Dock
         private int _maxRefugees;
 
         public GameObject RefugeePrefab;
-    
+
         private Dictionary<RefugeeContainer, float> _waitDictionary;
-        private List<Refugee> _refugees; 
+        private List<Refugee.Refugee> _refugees;
 
         new void Start()
         {
             base.Start();
             _waitDictionary = new Dictionary<RefugeeContainer, float>();
             _maxRefugees = RefugeBodies.Length;
-            _refugees = new List<Refugee>();
+            _refugees = new List<Refugee.Refugee>();
             StartCoroutine(SpawnRefugees());
         }
 
@@ -49,7 +50,7 @@ namespace Assets.Scripts.Dock
                 if (!(time < Time.time)) continue;
                 if (!_refugees.Any()) continue;
 
-                if(!container.TryAddRefugee(_refugees[0])) continue;
+                if (!container.TryAddRefugee(_refugees[0])) continue;
                 _refugees.RemoveAt(0);
 
                 _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
@@ -63,7 +64,7 @@ namespace Assets.Scripts.Dock
             {
                 if (_refugees.Count < _maxRefugees)
                 {
-                    _refugees.Add(Instantiate(RefugeePrefab).GetComponent<Refugee>());
+                    _refugees.Add(Instantiate(RefugeePrefab).GetComponent<Refugee.Refugee>());
                     NumberOfRefugees = _refugees.Count;
                 }
                 yield return new WaitForSeconds(Constants.DefaultValues.WaitTimeBetweenDockAdd);
@@ -74,7 +75,13 @@ namespace Assets.Scripts.Dock
         {
             for (int i = 0; i < _maxRefugees; i++)
             {
-                RefugeBodies[i].SetActive(i < _numberOfrefugees);
+                var active = i < _numberOfrefugees;
+                RefugeBodies[i].SetActive(active);
+                if (active)
+                {
+                    RefugeBodies[i].transform.Find("Body").GetComponent<MeshRenderer>().material.color =
+                        _refugees[i].Destination.DockColor;
+                }
             }
         }
     }
