@@ -11,6 +11,8 @@ GameObject:
   - 33: {fileID: 3338620}
   - 23: {fileID: 2376850}
   - 65: {fileID: 6513922}
+  - 135: {fileID: 13588864}
+  - 114: {fileID: 11478056}
   m_Layer: 0
   m_Name: DockSImple
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164386}
   m_LocalRotation: {x: 0, y: 0.3197584, z: 0, w: 0.94749916}
-  m_LocalPosition: {x: -10.09, y: 3.21, z: 7.68}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalPosition: {x: 16.5, y: 1.6, z: -15}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,6 +77,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 12.5, y: 5.92, z: 6}
   m_Center: {x: -2.1, y: -2.59, z: 0}
+--- !u!114 &11478056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6c8bbfc9f47749b79a0c02e1baeaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxRefugees: 15
+  NumberOfRefugees: 0
+  RefugeePrefab: {fileID: 102806, guid: 112195a9c27624e91aeb6506c8fb1a3a, type: 2}
+--- !u!135 &13588864
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164386}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 13.73
+  m_Center: {x: -2.4105544, y: -1.6838353, z: -0.00000023841858}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

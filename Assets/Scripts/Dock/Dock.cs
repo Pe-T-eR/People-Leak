@@ -13,12 +13,12 @@ namespace Assets.Scripts.Dock
             DockedShips = new List<RefugeeContainer>();
         }
 
-        void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
                 DockedShips.Add(other.GetComponent<RefugeeContainer>());
         }
-        void OnTriggerExit2D(Collider2D other)
+        void OnTriggerExit(Collider other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
                 DockedShips.Remove(other.GetComponent<RefugeeContainer>());

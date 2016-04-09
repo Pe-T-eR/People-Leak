@@ -15,14 +15,14 @@ namespace Assets.Scripts.Player
         [Tooltip("How close the boat can get to a blocking element")]
         public float RayDistance;
 
-        private Rigidbody2D rb;
+        private Rigidbody rb;
 
         // Use this for initialization
         void Start () {
             // Default movement
             LeftKey = string.IsNullOrEmpty(LeftKey) ? "a" : LeftKey;
             RightKey = string.IsNullOrEmpty(RightKey) ? "d" : RightKey;
-            rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody>();
         }
 	
         // Update is called once per frame
@@ -30,12 +30,12 @@ namespace Assets.Scripts.Player
         {
             // Turning
             if (Input.GetKey(LeftKey))
-                transform.Rotate(Vector3.forward, RoationSpeed*Time.deltaTime);
+                transform.Rotate(Vector3.up, -RoationSpeed*Time.deltaTime);
             else if (Input.GetKey(RightKey))
-                transform.Rotate(Vector3.back, RoationSpeed*Time.deltaTime);
+                transform.Rotate(Vector3.up, RoationSpeed*Time.deltaTime);
 
             // Forward movement
-            rb.velocity = transform.right * -1 * MovementSpeed * Time.deltaTime;
+            rb.velocity = transform.forward * MovementSpeed * Time.deltaTime;
         }
     }
 }
