@@ -23,6 +23,7 @@
             // Dock
             public const float WaitTimeBetweenShipAdd = 1f;
             public const float WaitTimeBetweenDockAdd = 5f;
+            public const float WaitTimeBetweenDockRemove = 3f;
 
             //Upgrade
             public const float WaitForCapacityUpgrade = 2f;

@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
-using System.Collections;
 
 public class Boat : MonoBehaviour {
 
     public int Capacity;
     public int MaxSpeed;
     public double RotationSpeed;
+    public int Score;
 
     private RefugeeContainer container;
 

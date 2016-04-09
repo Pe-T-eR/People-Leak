@@ -12,6 +12,8 @@ GameObject:
   - 114: {fileID: 11439048}
   - 58: {fileID: 5806370}
   - 50: {fileID: 5057962}
+  - 114: {fileID: 11484792}
+  - 114: {fileID: 11457980}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Player
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 4.11, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -73,11 +75,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a85b1580300734193cd53bf5b3005d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftKey: left
-  RightKey: right
+  LeftKey: 
+  RightKey: 
   RoationSpeed: 76.2
   MovementSpeed: 50
   RayDistance: 0
+--- !u!114 &11457980
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3234eaeed2591cf46acbaa0644a515be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Capacity: 0
+  MaxSpeed: 0
+  RotationSpeed: 0
+  Score: 0
+--- !u!114 &11484792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95376efbc5227c84ba7b506848eff86a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 10
 --- !u!212 &21236454
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -104,7 +133,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 69f3d95dcfeb4e449ae1d1fdc3bf3a17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5d65b291d12c2654b81242dfa3410580, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
