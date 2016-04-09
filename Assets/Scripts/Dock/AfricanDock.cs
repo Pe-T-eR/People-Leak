@@ -39,6 +39,15 @@ namespace Assets.Scripts.Dock
             _refugees = new List<Refugee.Refugee>();
             _gameMaster = FindObjectOfType<GameMaster>();
             _audioHandler = _gameMaster.GetComponent<AudioHandler>();
+
+            var i = 0;
+            while(i < Constants.DefaultValues.NumRefugeesAtStart)
+            {
+                _refugees.Add(Instantiate(RefugeePrefab).GetComponent<Refugee.Refugee>());
+                NumberOfRefugees = _refugees.Count;
+                i++;
+            }
+
             StartCoroutine(SpawnRefugees());
         }
 

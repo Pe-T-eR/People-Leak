@@ -32,7 +32,8 @@ namespace Assets.Scripts.Configuration
             // Dock
             public const float WaitTimeBetweenShipAdd = 1f;
             public const float WaitTimeBetweenDockAdd = 5f;
-            public const float WaitTimeBetweenDockRemove = 3f;
+            public const float WaitTimeBetweenDockRemove = 1f;
+            public const int NumRefugeesAtStart = 3;
 
             //Upgrade
             public const float WaitForCapacityUpgrade = 2f;

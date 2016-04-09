@@ -165,4 +165,14 @@ public class Boat : MonoBehaviour {
 			}
 		}
 	}
+
+    public void Countdown(float time)
+    {
+
+    }
+
+    public void StopCountdown()
+    {
+
+    }
 }

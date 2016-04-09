@@ -13,12 +13,19 @@ namespace Assets.Scripts.Dock
             DockedBoats = new List<Boat>();
         }
 
-        void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
-                DockedBoats.Add(other.GetComponent<Boat>());
+            {
+                var boat = other.GetComponent<Boat>();
+                if (!DockedBoats.Contains(boat))
+                {
+                    DockedBoats.Add(boat);
+                }
+            }
         }
-        void OnTriggerExit(Collider other)
+
+        protected void OnTriggerExit(Collider other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
                 DockedBoats.Remove(other.GetComponent<Boat>());
