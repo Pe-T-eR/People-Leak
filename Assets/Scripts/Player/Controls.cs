@@ -56,9 +56,6 @@ namespace Assets.Scripts.Player
                 {
                     refugee.Dump();
                     _lastDump = Time.time;
-
-                    _audioHandler.Play(_audioHandler.DumpSound);
-
                     _dumpBoost = true;
                 }
             }
@@ -80,6 +77,11 @@ namespace Assets.Scripts.Player
             var remaining = (Constants.DefaultValues.DumpDuration - timeSinceDump) / Constants.DefaultValues.DumpDuration;
 
             return Constants.DefaultValues.DumpBoost * remaining;
+        }
+
+        public Vector3 GetVelocity()
+        {
+            return _rb.velocity;
         }
     }
 }

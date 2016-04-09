@@ -36,11 +36,16 @@ public class Boat : MonoBehaviour {
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 	}
 	
-	public void OnTriggerEnter2D(Collider2D other)
+	public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(Constants.Tags.Player) || other.CompareTag(Constants.Tags.CoastGuard))
+        if(other.CompareTag(Constants.Tags.Player))
         {
-            BoatCollision(other);
+            var impactForce = CalculateImpact(other.GetComponentInParent<Controls>());
+            BoatCollision(impactForce);
+        }
+        else if(other.CompareTag(Constants.Tags.CoastGuard))
+        {
+
         }
         else if(other.CompareTag(Constants.Tags.Refugee))
         {
@@ -48,12 +53,26 @@ public class Boat : MonoBehaviour {
         }
     }
 
-    private void BoatCollision(Collider2D other)
+    private void BoatCollision(float impactForce)
     {
+        if(impactForce > 1f)
+        {
+            var audioHandler = GetComponentInParent<AudioHandler>();
+            audioHandler.Play(audioHandler.CollisionSound);
 
+            if(IsRefugeeDropped(impactForce))
+            {
+                var droppedRefugee = RefugeeContainer.RemoveRefugee();
+
+                if(droppedRefugee != null)
+                {
+                    droppedRefugee.Dump();
+                }
+            }
+        }
     }
 
-    private void RefugeeCollision(Collider2D other)
+    private void RefugeeCollision(Collider other)
     {
         var refugee = other.GetComponentInParent<Refugee>();
 
@@ -61,6 +80,24 @@ public class Boat : MonoBehaviour {
         {
             refugee.PickUp();
         }        
+    }
+
+    private float CalculateImpact(Controls other)
+    {
+        var impactVector = GetComponentInParent<Controls>().GetVelocity() - other.GetVelocity();
+        Debug.Log(impactVector.magnitude);
+        return impactVector.magnitude;
+    }
+
+    private float CalculateImpact()
+    {
+        return 0f;
+    }
+
+    private bool IsRefugeeDropped(float impact)
+    {
+        var rand = Random.Range(0f, Capacity) * impact;
+        return rand >= RefugeeContainer.GetCount();        
     }
 
     public void UpgradeCapacity()
