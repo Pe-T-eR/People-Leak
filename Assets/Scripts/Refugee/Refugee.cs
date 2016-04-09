@@ -1,28 +1,41 @@
-﻿using UnityEngine;
-using Assets.Scripts.Configuration;
+﻿using Assets.Scripts.Configuration;
 using Assets.Scripts.Dock;
+using UnityEngine;
 
-public class Refugee : MonoBehaviour {
+namespace Assets.Scripts.Refugee
+{
+    public class Refugee : MonoBehaviour {
 
-    public int Value;
-    public bool Drowning;
-    public Dock Destination;
+        public int Value;
+        public bool Drowning;
+        public bool Alive;
+        private EuropeanDock _destination;
 
-    private double _lifetime;
+        public EuropeanDock Destination
+        {
+            get
+            {
+                if (_destination == null)
+                {
+                    var destinations = FindObjectsOfType<EuropeanDock>();
+                    _destination = destinations[Random.Range(0, destinations.Length)];
+                }
+                return _destination;
+            } 
+        }
 
-	// Use this for initialization
-	void Start () {
+        private double _lifetime;
 
-        Value = Constants.DefaultValues.RefugeeValue;
-        _lifetime = Constants.DefaultValues.RefugeeLifespan;
-        Drowning = false;
+        // Use this for initialization
+        void Start () {
 
-        var destinations = GetComponents<EuropeanDock>();
-        Destination = destinations[Random.Range(0, destinations.Length)];
-	}
+            Value = Constants.DefaultValues.RefugeeValue;
+            _lifetime = Constants.DefaultValues.RefugeeLifespan;
+            Drowning = false;            
+        }
 	
-	// Update is called once per frame
-	void Update () {
+        // Update is called once per frame
+        void Update () {
 
         //Only update the living
         if (Drowning)

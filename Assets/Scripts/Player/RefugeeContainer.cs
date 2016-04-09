@@ -2,6 +2,7 @@
 using Assets.Scripts.Dock;
 using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.Refugee;
 
 public class RefugeeContainer : MonoBehaviour {
 
@@ -14,14 +15,28 @@ public class RefugeeContainer : MonoBehaviour {
     //Our parent
     private Boat _parent;
 
-	// Use this for initialization
-	void Start () {
+    private int _numberOfrefugees;
+    public int NumberOfRefugees
+    {
+        get { return _numberOfrefugees; }
+        set
+        {
+            _numberOfrefugees = value;
+            UpdateVisualRefugees();
+        }
+    }
+    public GameObject[] RefugeBodies;
+
+
+    // Use this for initialization
+    void Start () {
 
         _refugees = new List<Refugee>();
 
         _parent = GetComponentInParent<Boat>();
         capacity = _parent.Capacity;
-	}
+        NumberOfRefugees = 0;
+    }
 	
     /// <summary>
     /// Returns the number of refugees currently sitting safely and varmly in the boat.
@@ -43,7 +58,8 @@ public class RefugeeContainer : MonoBehaviour {
         //Do we have room?
         if (GetCount() < capacity)
         {            
-            _refugees.Add(refugee != null ? refugee : new Refugee());
+            _refugees.Add(refugee);
+            NumberOfRefugees = _refugees.Count;
 
             //Refugee was added
             return true;
@@ -77,10 +93,25 @@ public class RefugeeContainer : MonoBehaviour {
             if (refugee != null)
             {
                 _refugees.Remove(refugee);
+                NumberOfRefugees = _refugees.Count;
             }
 
             //And return it
             return refugee;
+        }
+    }
+
+    private void UpdateVisualRefugees()
+    {
+        for (int i = 0; i < capacity; i++)
+        {
+            var active = i < _numberOfrefugees;
+            RefugeBodies[i].SetActive(active);
+            if (active)
+            {
+                RefugeBodies[i].transform.Find("Body").GetComponent<MeshRenderer>().material.color =
+                    _refugees[i].Destination.DockColor;
+            }
         }
     }
 }
