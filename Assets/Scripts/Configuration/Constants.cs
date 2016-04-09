@@ -43,7 +43,10 @@
 
             public const int CapacityUpgradeEffect = 5;
             public const int EngineUpgradeEffect = 100;
-            public const float AddSpeedUpgradeEffet = 0.3f;            
+            public const float AddSpeedUpgradeEffet = 0.3f;      
+            
+            // Coast guard
+            public const float TimeBetweenRescue = 0.5f;
         }
     }
 }
