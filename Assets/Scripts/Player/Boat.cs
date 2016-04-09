@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
 using Assets.Scripts.Player;
+using Assets.Scripts.Refugee;
 
 public class Boat : MonoBehaviour {
 
@@ -18,7 +19,9 @@ public class Boat : MonoBehaviour {
     public int AddSpeedLevel;
 
     public RefugeeContainer RefugeeContainer;
+
     private Controls _movementControls;
+    private GameMaster _gameMaster;
 
 	public GameObject[] UpgradeBodies;
 
@@ -36,11 +39,71 @@ public class Boat : MonoBehaviour {
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 		ShowEngineUpgrade(EngineLevel);
+        _gameMaster = FindObjectOfType<GameMaster>();
 	}
 	
-	public void OnTriggerEnter2D()
+	public void OnTriggerEnter(Collider other)
     {
+        if(other.CompareTag(Constants.Tags.Player))
+        {
+            var impactForce = CalculateImpact(other.GetComponentInParent<Controls>());
+            BoatCollision(impactForce);
+        }
+        else if(other.CompareTag(Constants.Tags.CoastGuard))
+        {
 
+        }
+        else if(other.CompareTag(Constants.Tags.Refugee))
+        {
+            RefugeeCollision(other);
+        }
+    }
+
+    private void BoatCollision(float impactForce)
+    {
+        if(impactForce > 1f)
+        {
+            var audioHandler = _gameMaster.GetComponent<AudioHandler>();
+            audioHandler.Play(audioHandler.CollisionSound);
+
+            if(IsRefugeeDropped(impactForce))
+            {
+                var droppedRefugee = RefugeeContainer.RemoveRefugee();
+
+                if(droppedRefugee != null)
+                {
+                    droppedRefugee.Dump();
+                }
+            }
+        }
+    }
+
+    private void RefugeeCollision(Collider other)
+    {
+        var refugee = other.GetComponentInParent<Refugee>();
+
+        if (RefugeeContainer.TryAddRefugee(refugee))
+        {
+            refugee.PickUp();
+        }        
+    }
+
+    private float CalculateImpact(Controls other)
+    {
+        var impactVector = GetComponentInParent<Controls>().GetVelocity() - other.GetVelocity();
+        Debug.Log(impactVector.magnitude);
+        return impactVector.magnitude;
+    }
+
+    private float CalculateImpact()
+    {
+        return 0f;
+    }
+
+    private bool IsRefugeeDropped(float impact)
+    {
+        var rand = Random.Range(0f, Capacity) * impact;
+        return rand >= RefugeeContainer.GetCount();        
     }
 
     public void UpgradeCapacity()

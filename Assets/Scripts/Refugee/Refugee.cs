@@ -9,7 +9,8 @@ namespace Assets.Scripts.Refugee
 
         public int Value;
         public bool Drowning;
-        public bool Alive;
+
+        private GameMaster _gameMaster;
         private EuropeanDock _destination;
 
         public EuropeanDock Destination
@@ -30,10 +31,10 @@ namespace Assets.Scripts.Refugee
         // Use this for initialization
         void Start()
         {
-
             Value = Constants.DefaultValues.RefugeeValue;
             _lifetime = Constants.DefaultValues.RefugeeLifespan;
-            Drowning = false;
+            _gameMaster = FindObjectOfType<GameMaster>();
+            Drowning = false;            
         }
 
         // Update is called once per frame
@@ -59,6 +60,9 @@ namespace Assets.Scripts.Refugee
         /// </summary>
         public void Dump()
         {
+            var audioHandler = _gameMaster.GetComponent<AudioHandler>();
+            audioHandler.Play(audioHandler.DumpSound);
+
             Drowning = true;
         }
 
