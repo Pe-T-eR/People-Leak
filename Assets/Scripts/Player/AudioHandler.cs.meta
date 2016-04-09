@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bba4ad8b02cb86244884f53f4c765afc
+timeCreated: 1460216567
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - DumpSound: {fileID: 8300000, guid: 42e689c2a2aefc649857a169161f1759, type: 3}
+  - PickupSound: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

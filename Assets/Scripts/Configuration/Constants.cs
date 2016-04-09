@@ -20,6 +20,7 @@
             //Refugee
             public const int RefugeeValue = 10;
             public const double RefugeeLifespan = 60.0;
+            public const double DumpCooldown = 1.0;
 
             // Dock
             public const float WaitTimeBetweenShipAdd = 1f;

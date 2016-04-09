@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Assets.Scripts.Refugee
 {
-    public class Refugee : MonoBehaviour {
+    public class Refugee : MonoBehaviour
+    {
 
         public int Value;
         public bool Drowning;
@@ -21,24 +22,26 @@ namespace Assets.Scripts.Refugee
                     _destination = destinations[Random.Range(0, destinations.Length)];
                 }
                 return _destination;
-            } 
+            }
         }
 
         private double _lifetime;
 
         // Use this for initialization
-        void Start () {
+        void Start()
+        {
 
             Value = Constants.DefaultValues.RefugeeValue;
             _lifetime = Constants.DefaultValues.RefugeeLifespan;
-            Drowning = false;            
+            Drowning = false;
         }
-	
+
         // Update is called once per frame
-        void Update () {
+        void Update()
+        {
 
             //Only update the living
-            if (Alive && Drowning)
+            if (Drowning)
             {
                 //Decrease liftime
                 _lifetime -= Time.deltaTime;
@@ -46,7 +49,7 @@ namespace Assets.Scripts.Refugee
                 //Are we dead yet?
                 if (_lifetime <= 0)
                 {
-                    Alive = false;
+                    Destroy(this);
                 }
             }
         }
@@ -54,7 +57,7 @@ namespace Assets.Scripts.Refugee
         /// <summary>
         /// Tells the refugee that he has been dumped of the boat, you heartless bastard.
         /// </summary>
-        void Dump()
+        public void Dump()
         {
             Drowning = true;
         }
@@ -62,7 +65,7 @@ namespace Assets.Scripts.Refugee
         /// <summary>
         /// Save a refugee from the sea by inviting on board. What a nice person you are.
         /// </summary>
-        void PickUp()
+        public void PickUp()
         {
             Drowning = false;
         }
