@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Configuration;
+using Assets.Scripts.Refugee;
 using UnityEngine;
 
 namespace Assets.Scripts.Dock
@@ -78,10 +79,7 @@ namespace Assets.Scripts.Dock
                 var active = i < _numberOfrefugees;
                 RefugeBodies[i].SetActive(active);
                 if (active)
-                {
-                    RefugeBodies[i].transform.Find("Body").GetComponent<MeshRenderer>().material.color =
-                        _refugees[i].Destination.DockColor;
-                }
+                    RefugeBodies[i].transform.GetChild(0).GetComponent<ColorControl>().SetColor(_refugees[i].Destination.DockColor);
             }
         }
     }

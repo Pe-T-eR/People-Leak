@@ -109,8 +109,7 @@ public class RefugeeContainer : MonoBehaviour {
             RefugeBodies[i].SetActive(active);
             if (active)
             {
-                RefugeBodies[i].transform.Find("Body").GetComponent<MeshRenderer>().material.color =
-                    _refugees[i].Destination.DockColor;
+                RefugeBodies[i].transform.GetChild(0).GetComponent<ColorControl>().SetColor(_refugees[i].Destination.DockColor);
             }
         }
     }
