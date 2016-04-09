@@ -8,8 +8,19 @@ namespace Assets.Scripts.Dock
 {
     public class AfricanDock : Dock
     {
-        public int MaxRefugees;
-        public int NumberOfRefugees;
+        private int _numberOfrefugees;
+        public int NumberOfRefugees
+        {
+            get { return _numberOfrefugees; }
+            set
+            {
+                _numberOfrefugees = value;
+                UpdateVisualRefugees();
+            }
+        }
+
+        public GameObject[] RefugeBodies;
+        private int _maxRefugees;
 
         public GameObject RefugeePrefab;
     
@@ -20,6 +31,7 @@ namespace Assets.Scripts.Dock
         {
             base.Start();
             _waitDictionary = new Dictionary<RefugeeContainer, float>();
+            _maxRefugees = RefugeBodies.Length;
             _refugees = new List<Refugee>();
             StartCoroutine(SpawnRefugees());
         }
@@ -49,12 +61,20 @@ namespace Assets.Scripts.Dock
         {
             while (true)
             {
-                if (_refugees.Count < MaxRefugees)
+                if (_refugees.Count < _maxRefugees)
                 {
                     _refugees.Add(Instantiate(RefugeePrefab).GetComponent<Refugee>());
                     NumberOfRefugees = _refugees.Count;
                 }
                 yield return new WaitForSeconds(Constants.DefaultValues.WaitTimeBetweenDockAdd);
+            }
+        }
+
+        private void UpdateVisualRefugees()
+        {
+            for (int i = 0; i < _maxRefugees; i++)
+            {
+                RefugeBodies[i].SetActive(i < _numberOfrefugees);
             }
         }
     }
