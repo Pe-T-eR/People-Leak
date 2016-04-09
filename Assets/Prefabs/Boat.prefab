@@ -10,9 +10,11 @@ GameObject:
   - 4: {fileID: 406274}
   - 212: {fileID: 21236454}
   - 114: {fileID: 11439048}
+  - 58: {fileID: 5806370}
+  - 50: {fileID: 5057962}
   m_Layer: 0
   m_Name: Boat
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,10 +27,41 @@ Transform:
   m_GameObject: {fileID: 135958}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!50 &5057962
+Rigidbody2D:
+  serializedVersion: 2
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135958}
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &5806370
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135958}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: -0.37}
+  serializedVersion: 2
+  m_Radius: 0.84
 --- !u!114 &11439048
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -40,14 +73,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a85b1580300734193cd53bf5b3005d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftKey: 
-  RightKey: 
+  LeftKey: left
+  RightKey: right
   RoationSpeed: 76.2
-  MovementSpeed: 2
-  maxX: 8
-  minX: -8
-  maxY: 5
-  minY: -5
+  MovementSpeed: 50
+  RayDistance: 0
 --- !u!212 &21236454
 SpriteRenderer:
   m_ObjectHideFlags: 1
