@@ -52,7 +52,10 @@ public class GameMaster : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		var winningPlayers = new List<string>();
+        if (Input.GetKey(KeyCode.Escape))
+            Application.Quit();
+
+        var winningPlayers = new List<string>();
 
 		for (var i = 0; i < playerBoats.Length; i++) {
 			if (playerBoats[i] == null) {

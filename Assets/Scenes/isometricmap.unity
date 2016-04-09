@@ -650,10 +650,6 @@ Prefab:
       propertyPath: Route
       value: 
       objectReference: {fileID: 911828886}
-    - target: {fileID: 13528416, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
-      propertyPath: m_Radius
-      value: 0.75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
   m_IsPrefabParent: 0
