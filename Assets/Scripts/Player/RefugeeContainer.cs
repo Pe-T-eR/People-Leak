@@ -8,18 +8,18 @@ public class RefugeeContainer : MonoBehaviour {
     public int capacity;
 
     //Contains the refugees currently on the boat
-    private List<Refugee> refugees;
+    private List<Refugee> _refugees;
 
     //Our parent
-    private Boat parent;
+    private Boat _parent;
 
 	// Use this for initialization
 	void Start () {
 
-        refugees = new List<Refugee>();
+        _refugees = new List<Refugee>();
 
-        parent = GetComponentInParent<Boat>();
-        capacity = parent.Capacity;
+        _parent = GetComponentInParent<Boat>();
+        capacity = _parent.Capacity;
 	}
 	
     /// <summary>
@@ -28,7 +28,7 @@ public class RefugeeContainer : MonoBehaviour {
     /// <returns></returns>
 	public int GetCount()
     {
-        return refugees.Count;
+        return _refugees.Count;
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public class RefugeeContainer : MonoBehaviour {
         //Do we have room?
         if (GetCount() < capacity)
         {            
-            refugees.Add(refugee != null ? refugee : new Refugee());
+            _refugees.Add(refugee != null ? refugee : new Refugee());
 
             //Refugee was added
             return true;
@@ -70,10 +70,10 @@ public class RefugeeContainer : MonoBehaviour {
         else
         {
             //The refugee to return
-            var refugee = refugees[0];
+            var refugee = _refugees[0];
 
             //Remove it from the container
-            refugees.Remove(refugee);
+            _refugees.Remove(refugee);
 
             //And return it
             return refugee;

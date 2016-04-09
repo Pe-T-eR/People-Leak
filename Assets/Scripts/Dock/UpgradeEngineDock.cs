@@ -3,16 +3,16 @@ using Assets.Scripts.Dock;
 using Assets.Scripts.Configuration;
 using System.Collections.Generic;
 
-public class UpgradeCapacityDock : Dock {
-
+public class UpgradeEngineDock : Dock
+{
     private Dictionary<Boat, float> _waitDictionary;
 
     // Use this for initialization
-	new void Start () {
-
+    new void Start()
+    {
         base.Start();
         _waitDictionary = new Dictionary<Boat, float>();
-	}
+    }
 
     // Update is called once per frame
     void Update()
@@ -24,21 +24,21 @@ public class UpgradeCapacityDock : Dock {
             _waitDictionary.TryGetValue(boat, out time);
 
             //Start waiting if we aren't already
-            if(time == default(float))
+            if (time == default(float))
             {
-                _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForCapacityUpgrade * boat.CapacityLevel;
+                _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForEngineUpgrade * boat.EngineLevel;
                 continue;
             }
 
             //We haven't waited long enough or can't afford the upgrade
             if (!(time < Time.time)) continue;
-            if (!(boat.Score >= boat.CapacityLevel * Constants.DefaultValues.CapacityUpgradeCostModifier)) continue;
+            if (!(boat.Score >= boat.EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier)) continue;
 
             //Wohoo, upgrade time!
-            boat.UpgradeCapacity();
+            boat.UpgradeEngine();
 
             //Wait for next upgrade
-            _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForCapacityUpgrade * boat.CapacityLevel;
+            _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForEngineUpgrade * boat.EngineLevel;
         }
     }
 }

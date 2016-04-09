@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
+using System;
 
 public class Boat : MonoBehaviour {
 
@@ -8,7 +9,10 @@ public class Boat : MonoBehaviour {
     public double RotationSpeed;
     public int Score;
 
-    private RefugeeContainer container;
+    public int CapacityLevel;
+    public int EngineLevel;
+
+    public RefugeeContainer RefugeeContainer;
 
 	// Use this for initialization
 	void Start () {
@@ -17,11 +21,34 @@ public class Boat : MonoBehaviour {
         MaxSpeed = Constants.DefaultValues.BoatBaseSpeed;
         RotationSpeed = Constants.DefaultValues.BoatBaseRotationSpeed;
 
-        container = GetComponentInParent<RefugeeContainer>();
+        CapacityLevel = 1;
+        EngineLevel = 1;
+
+        RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
+
+    public void UpgradeCapacity()
+    {
+        if (Score >= CapacityLevel * Constants.DefaultValues.CapacityUpgradeCostModifier)
+        {
+            Score -= CapacityLevel * Constants.DefaultValues.CapacityUpgradeCostModifier;
+            Capacity += Constants.DefaultValues.CapacityUpgradeEffect;
+            CapacityLevel++;
+        }
+    }
+
+    public void UpgradeEngine()
+    {
+        if (Score >= EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier)
+        {
+            Score -= EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier;
+            MaxSpeed += Constants.DefaultValues.EngineUpgradeEffect;
+            EngineLevel++;
+        }
+    }
 }

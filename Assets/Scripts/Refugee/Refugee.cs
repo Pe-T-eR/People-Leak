@@ -8,13 +8,13 @@ public class Refugee : MonoBehaviour {
     public bool Drowning;
     public bool Alive;
 
-    private double lifetime;
+    private double _lifetime;
 
 	// Use this for initialization
 	void Start () {
 
         Value = Constants.DefaultValues.RefugeeValue;
-        lifetime = Constants.DefaultValues.RefugeeLifespan;
+        _lifetime = Constants.DefaultValues.RefugeeLifespan;
         Drowning = false;
 
 	}
@@ -26,10 +26,10 @@ public class Refugee : MonoBehaviour {
         if (Alive && Drowning)
         {
             //Decrease liftime
-            lifetime -= Time.deltaTime;
+            _lifetime -= Time.deltaTime;
 
             //Are we dead yet?
-            if (lifetime <= 0)
+            if (_lifetime <= 0)
             {
                 Alive = false;
             }
