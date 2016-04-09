@@ -278,6 +278,10 @@ Prefab:
       propertyPath: m_Name
       value: BlueBoat
       objectReference: {fileID: 0}
+    - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: DumpKey
+      value: right shift
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
   m_IsPrefabParent: 0

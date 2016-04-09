@@ -6,7 +6,6 @@ public class Refugee : MonoBehaviour {
 
     public int Value;
     public bool Drowning;
-    public bool Alive;
     public Dock Destination;
 
     private double _lifetime;
@@ -19,14 +18,14 @@ public class Refugee : MonoBehaviour {
         Drowning = false;
 
         var destinations = GetComponents<EuropeanDock>();
-        var Destination = destinations[Random.Range(0, destinations.Length)];
+        Destination = destinations[Random.Range(0, destinations.Length)];
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
         //Only update the living
-        if (Alive && Drowning)
+        if (Drowning)
         {
             //Decrease liftime
             _lifetime -= Time.deltaTime;
@@ -34,7 +33,7 @@ public class Refugee : MonoBehaviour {
             //Are we dead yet?
             if (_lifetime <= 0)
             {
-                Alive = false;
+                Destroy(this);
             }
         }
 	}
@@ -42,7 +41,7 @@ public class Refugee : MonoBehaviour {
     /// <summary>
     /// Tells the refugee that he has been dumped of the boat, you heartless bastard.
     /// </summary>
-    void Dump()
+    public void Dump()
     {
         Drowning = true;
     }
@@ -50,7 +49,7 @@ public class Refugee : MonoBehaviour {
     /// <summary>
     /// Save a refugee from the sea by inviting on board. What a nice person you are.
     /// </summary>
-    void PickUp()
+    public void PickUp()
     {
         Drowning = false;
     }
