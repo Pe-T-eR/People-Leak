@@ -23,7 +23,7 @@ public class RefugeeContainer : MonoBehaviour {
 	}
 	
     /// <summary>
-    /// Returns the number of refugees currently on the boat.
+    /// Returns the number of refugees currently sitting safely and varmly in the boat.
     /// </summary>
     /// <returns></returns>
 	public int GetCount()
@@ -33,6 +33,7 @@ public class RefugeeContainer : MonoBehaviour {
 
     /// <summary>
     /// Attempts to add the given refugee to the container. Adds a default refugee if null is received.
+    /// Remember to keep your refugees safe.
     /// </summary>
     /// <param name="refugee"></param>
     /// <returns>An indication of whether the refugee was added.</returns>
@@ -55,6 +56,7 @@ public class RefugeeContainer : MonoBehaviour {
 
     /// <summary>
     /// Removes a refugee from the container and returns it. Returns null if no refugees are in the container.
+    /// Please don't call this method while at sea.
     /// </summary>
     /// <returns></returns>
     public Refugee RemoveRefugee()

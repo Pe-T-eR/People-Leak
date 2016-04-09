@@ -11,9 +11,9 @@ public class Boat : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        Capacity = Constants.DefaultValues.BaseCapacity;
-        MaxSpeed = Constants.DefaultValues.BaseSpeed;
-        RotationSpeed = Constants.DefaultValues.BaseRotationSpeed;
+        Capacity = Constants.DefaultValues.BoatBaseCapacity;
+        MaxSpeed = Constants.DefaultValues.BoatBaseSpeed;
+        RotationSpeed = Constants.DefaultValues.BoatBaseRotationSpeed;
 	}
 	
 	// Update is called once per frame

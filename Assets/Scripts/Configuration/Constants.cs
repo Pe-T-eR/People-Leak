@@ -12,12 +12,13 @@
         public class DefaultValues
         {
             //Boat
-            public const int BaseSpeed = 50;
-            public const double BaseRotationSpeed = 76.2;
-            public const int BaseCapacity = 10;
+            public const int BoatBaseSpeed = 50;
+            public const double BoatBaseRotationSpeed = 76.2;
+            public const int BoatBaseCapacity = 10;
 
             //Refugee
             public const int RefugeeValue = 10;
+            public const double RefugeeLifespan = 60.0;
         }
     }
 }
