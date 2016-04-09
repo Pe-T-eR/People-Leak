@@ -116,8 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DumpSound: {fileID: 8300000, guid: 42e689c2a2aefc649857a169161f1759, type: 3}
-  PickupSound: {fileID: 0}
-  CollisionSound: {fileID: 8300000, guid: 02d9556e401c65340846ded91ab64b3e, type: 3}
+  PickupSound: {fileID: 8300000, guid: e614643c9f87a3248bee2763656c603c, type: 3}
+  CollisionSound: {fileID: 8300000, guid: 7b98edffe777fef44bf210f02519f78b, type: 3}
   CoastGuardSiren: {fileID: 8300000, guid: bd5b82549a540dc409525e926f3e8ba4, type: 3}
   RefugeeDelivered: {fileID: 8300000, guid: ead75d3f5033f6148be156643565d363, type: 3}
 --- !u!114 &11422884

@@ -85,6 +85,8 @@ namespace Assets.Scripts.Refugee
             transform.FindChild("RefugeeBody").gameObject.SetActive(false);
             transform.position = Constants.DefaultValues.AwayPosition;
             Drowning = false;
+
+            _audioHandler.Play(_audioHandler.PickupSound);
         }
 
         public void OnTriggerEnter(Collider other)

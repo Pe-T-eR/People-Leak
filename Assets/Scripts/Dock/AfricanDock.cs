@@ -23,6 +23,8 @@ namespace Assets.Scripts.Dock
 
         public GameObject[] RefugeBodies;
         private int _maxRefugees;
+        private GameMaster _gameMaster;
+        private AudioHandler _audioHandler;
 
         public GameObject RefugeePrefab;
 
@@ -35,6 +37,8 @@ namespace Assets.Scripts.Dock
             _waitDictionary = new Dictionary<RefugeeContainer, float>();
             _maxRefugees = RefugeBodies.Length;
             _refugees = new List<Refugee.Refugee>();
+            _gameMaster = FindObjectOfType<GameMaster>();
+            _audioHandler = _gameMaster.GetComponent<AudioHandler>();
             StartCoroutine(SpawnRefugees());
         }
 
@@ -53,6 +57,8 @@ namespace Assets.Scripts.Dock
 
                 if (!container.TryAddRefugee(_refugees[0])) continue;
                 _refugees.RemoveAt(0);
+
+                _audioHandler.Play(_audioHandler.PickupSound);
 
                 _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd * boat.AddSpeedDelay;
                 NumberOfRefugees = _refugees.Count;

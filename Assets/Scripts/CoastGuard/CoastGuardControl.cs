@@ -61,6 +61,7 @@ namespace Assets.Scripts.CoastGuard
                 if(refugee != null)
                 {                    
                     _audioHandler.Play(_audioHandler.CoastGuardSiren);
+                    Destroy(refugee.gameObject);
                 }
 
                 _waitDictionary[boat] = Time.time + Constants.DefaultValues.TimeBetweenRescue;

@@ -37,7 +37,7 @@ public class UpgradeEngineDock : Dock
             }
 
             //We haven't waited long enough or can't afford the upgrade
-            if (!(time < Time.time)) continue;
+            if (time > Time.time) continue;
             if (!(boat.Score >= boat.EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier)) continue;
 
             //Wohoo, upgrade time!
