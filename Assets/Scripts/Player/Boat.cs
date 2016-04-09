@@ -19,7 +19,9 @@ public class Boat : MonoBehaviour {
     public int AddSpeedLevel;
 
     public RefugeeContainer RefugeeContainer;
+
     private Controls _movementControls;
+    private GameMaster _gameMaster;
 
 	// Use this for initialization
 	void Start ()
@@ -34,6 +36,7 @@ public class Boat : MonoBehaviour {
         AddSpeedDelay = 1f;
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
+        _gameMaster = FindObjectOfType<GameMaster>();
 	}
 	
 	public void OnTriggerEnter(Collider other)
@@ -57,7 +60,7 @@ public class Boat : MonoBehaviour {
     {
         if(impactForce > 1f)
         {
-            var audioHandler = GetComponentInParent<AudioHandler>();
+            var audioHandler = _gameMaster.GetComponent<AudioHandler>();
             audioHandler.Play(audioHandler.CollisionSound);
 
             if(IsRefugeeDropped(impactForce))
