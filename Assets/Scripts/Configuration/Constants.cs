@@ -13,7 +13,7 @@
         public class DefaultValues
         {
             //Boat
-            public const int BoatBaseSpeed = 50;
+            public const int BoatBaseSpeed = 100;
             public const double BoatBaseRotationSpeed = 76.2;
             public const int BoatBaseCapacity = 10;
 
@@ -37,9 +37,8 @@
             public const int AddSpeedUpgradeCostModifier = 10;
 
             public const int CapacityUpgradeEffect = 5;
-            public const int EngineUpgradeEffect = 5;
-            public const float AddSpeedUpgradeEffet = 0.3f;
-            
+            public const int EngineUpgradeEffect = 100;
+            public const float AddSpeedUpgradeEffet = 0.3f;            
         }
     }
 }

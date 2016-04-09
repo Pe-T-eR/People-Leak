@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
-using System;
+using Assets.Scripts.Player;
 
 public class Boat : MonoBehaviour {
 
     public int Capacity;
-    public int MaxSpeed;
+    public float MaxSpeed {
+        get { return _movementControls.MovementSpeed; }
+        set { _movementControls.MovementSpeed = value; }
+    }
     public double RotationSpeed;
     public float AddSpeedDelay;
     public int Score;
@@ -15,10 +18,12 @@ public class Boat : MonoBehaviour {
     public int AddSpeedLevel;
 
     public RefugeeContainer RefugeeContainer;
+    private Controls _movementControls;
 
 	// Use this for initialization
-	void Start () {
-
+	void Start ()
+	{
+	    _movementControls = GetComponent<Controls>();
         Capacity = Constants.DefaultValues.BoatBaseCapacity;
         MaxSpeed = Constants.DefaultValues.BoatBaseSpeed;
         RotationSpeed = Constants.DefaultValues.BoatBaseRotationSpeed;

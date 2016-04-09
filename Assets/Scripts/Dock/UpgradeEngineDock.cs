@@ -6,12 +6,18 @@ using System.Collections.Generic;
 public class UpgradeEngineDock : Dock
 {
     private Dictionary<Boat, float> _waitDictionary;
+    public GameObject Welder;
+
+    private AudioSource _welderAudio;
+    private Animation _welderAnimation;
 
     // Use this for initialization
     new void Start()
     {
         base.Start();
         _waitDictionary = new Dictionary<Boat, float>();
+        _welderAudio = Welder.GetComponent<AudioSource>();
+        _welderAnimation = Welder.GetComponent<Animation>();
     }
 
     // Update is called once per frame
@@ -35,7 +41,10 @@ public class UpgradeEngineDock : Dock
             if (!(boat.Score >= boat.EngineLevel * Constants.DefaultValues.EngineUpgradeCostModifier)) continue;
 
             //Wohoo, upgrade time!
+            Debug.Log("Upgrading...");
             boat.UpgradeEngine();
+            _welderAnimation.Play();
+            _welderAudio.Play();
 
             //Wait for next upgrade
             _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForEngineUpgrade * boat.EngineLevel;
