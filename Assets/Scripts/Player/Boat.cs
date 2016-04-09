@@ -10,10 +10,12 @@ public class Boat : MonoBehaviour {
         set { _movementControls.MovementSpeed = value; }
     }
     public double RotationSpeed;
+    public float AddSpeedDelay;
     public int Score;
 
     public int CapacityLevel;
     public int EngineLevel;
+    public int AddSpeedLevel;
 
     public RefugeeContainer RefugeeContainer;
     private Controls _movementControls;
@@ -28,6 +30,7 @@ public class Boat : MonoBehaviour {
 
         CapacityLevel = 1;
         EngineLevel = 1;
+        AddSpeedDelay = 1f;
 
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 	}
@@ -44,6 +47,16 @@ public class Boat : MonoBehaviour {
             Score -= CapacityLevel * Constants.DefaultValues.CapacityUpgradeCostModifier;
             Capacity += Constants.DefaultValues.CapacityUpgradeEffect;
             CapacityLevel++;
+        }
+    }
+
+    internal void UpgradeAddSpeed()
+    {
+        if( Score >= AddSpeedLevel * Constants.DefaultValues.AddSpeedUpgradeCostModifier)
+        {
+            Score -= AddSpeedLevel * Constants.DefaultValues.AddSpeedUpgradeCostModifier;
+            AddSpeedDelay *= Constants.DefaultValues.AddSpeedUpgradeEffet;
+            AddSpeedLevel++;
         }
     }
 

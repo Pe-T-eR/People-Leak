@@ -41,9 +41,9 @@ namespace Assets.Scripts.Dock
         // Update is called once per frame
         void Update()
         {
-            foreach (var ship in DockedBoats)
+            foreach (var boat in DockedBoats)
             {
-                var container = ship.GetComponent<RefugeeContainer>();
+                var container = boat.GetComponent<RefugeeContainer>();
 
                 float time;
                 _waitDictionary.TryGetValue(container, out time);
@@ -54,7 +54,7 @@ namespace Assets.Scripts.Dock
                 if (!container.TryAddRefugee(_refugees[0])) continue;
                 _refugees.RemoveAt(0);
 
-                _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd;
+                _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenShipAdd * boat.AddSpeedDelay;
                 NumberOfRefugees = _refugees.Count;
             }
         }

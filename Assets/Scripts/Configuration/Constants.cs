@@ -30,13 +30,15 @@
             //Upgrade
             public const float WaitForCapacityUpgrade = 2f;
             public const float WaitForEngineUpgrade = 2f;
+            public const float WaitForAddSpeedUpgrade = 2f;
 
             public const int CapacityUpgradeCostModifier = 10;
             public const int EngineUpgradeCostModifier = 10;
+            public const int AddSpeedUpgradeCostModifier = 10;
 
             public const int CapacityUpgradeEffect = 5;
             public const int EngineUpgradeEffect = 100;
-            
+            public const float AddSpeedUpgradeEffet = 0.3f;            
         }
     }
 }
