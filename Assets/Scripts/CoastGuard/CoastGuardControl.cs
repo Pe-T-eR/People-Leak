@@ -13,6 +13,8 @@ namespace Assets.Scripts.CoastGuard
 
         private List<Transform> _points;
         private NavMeshAgent _agent;
+        private GameMaster _gameMaster;
+        private AudioHandler _audioHandler;
 
         private int _point;
         private int Point
@@ -37,6 +39,8 @@ namespace Assets.Scripts.CoastGuard
             Point = 0;
 
             _waitDictionary = new Dictionary<Boat, float>();
+            _gameMaster = FindObjectOfType<GameMaster>();
+            _audioHandler = _gameMaster.GetComponent<AudioHandler>();
         }
 	
         // Update is called once per frame
@@ -52,9 +56,20 @@ namespace Assets.Scripts.CoastGuard
 
                 if (!(time < Time.time)) continue;
 
-                boat.RefugeeContainer.RemoveRefugee();
+                var refugee = boat.RefugeeContainer.RemoveRefugee();
+
+                if(refugee != null)
+                {                    
+                    _audioHandler.Play(_audioHandler.CoastGuardSiren);
+                }
+
                 _waitDictionary[boat] = Time.time + Constants.DefaultValues.TimeBetweenRescue;
             }
+        }
+
+        public Vector3 GetVelocity()
+        {
+            return GetComponent<Rigidbody>().velocity;
         }
     }
 }

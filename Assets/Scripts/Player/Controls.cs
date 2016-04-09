@@ -23,7 +23,6 @@ namespace Assets.Scripts.Player
 
         private Rigidbody _rb;
         private Boat _boat;
-        private AudioHandler _audioHandler;
 
         private float _lastDump;
         private bool _dumpBoost;
@@ -36,7 +35,6 @@ namespace Assets.Scripts.Player
             DumpKey = string.IsNullOrEmpty(DumpKey) ? "space" : DumpKey;
             _rb = GetComponent<Rigidbody>();
             _boat = GetComponent<Boat>();
-            _audioHandler = GetComponent<AudioHandler>();
             _lastDump = Time.time;
             _dumpBoost = false;
         }

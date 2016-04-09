@@ -19,12 +19,15 @@ public class GameMaster : MonoBehaviour {
 
     public GameObject GameMusic;
 
+	protected bool gameover = false;
+
 	// Use this for initialization
 	void Start ()
 	{
 	    var music = GameObject.FindGameObjectWithTag(Constants.Tags.Music);
-	    if (music == null)
+		if (music == null) {
 	        DontDestroyOnLoad(Instantiate(GameMusic).transform);
+		}
 
 		ResetGame();
 
@@ -55,13 +58,14 @@ public class GameMaster : MonoBehaviour {
 			if (playerBoats[i] == null) {
 				continue;
 			}
-			if (playerScores.Length > i) {
+			if (!gameover && playerScores.Length > i) {
 				var score = playerBoats[i].Score;
 				if (score > goalScore) {
 					winningPlayers.Clear();
 					goalScore = score;
 				}
 				if (score >= goalScore) {
+					gameover = true;
 					var playerName = playerNames[i];
 					if (String.IsNullOrEmpty(playerName)) {
 						playerName = String.Format("Unknown player {0}", i);
@@ -84,6 +88,7 @@ public class GameMaster : MonoBehaviour {
 			foreach (var winningPlayer in winningPlayers) {
 				winnerText += "\n" + winningPlayer;
 			}
+			winningText.text = winnerText;
 		    StartCoroutine(RestartScene());
 		}
 	}
