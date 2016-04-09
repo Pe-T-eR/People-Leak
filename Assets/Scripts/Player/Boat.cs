@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using Assets.Scripts.Configuration;
 using Assets.Scripts.Player;
+using Assets.Scripts.Refugee;
 
 public class Boat : MonoBehaviour {
 
@@ -35,9 +36,31 @@ public class Boat : MonoBehaviour {
         RefugeeContainer = GetComponentInParent<RefugeeContainer>();
 	}
 	
-	public void OnTriggerEnter2D()
+	public void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(Constants.Tags.Player) || other.CompareTag(Constants.Tags.CoastGuard))
+        {
+            BoatCollision(other);
+        }
+        else if(other.CompareTag(Constants.Tags.Refugee))
+        {
+            RefugeeCollision(other);
+        }
+    }
+
+    private void BoatCollision(Collider2D other)
     {
 
+    }
+
+    private void RefugeeCollision(Collider2D other)
+    {
+        var refugee = other.GetComponentInParent<Refugee>();
+
+        if (RefugeeContainer.TryAddRefugee(refugee))
+        {
+            refugee.PickUp();
+        }        
     }
 
     public void UpgradeCapacity()

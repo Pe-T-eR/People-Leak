@@ -24,6 +24,7 @@ namespace Assets.Scripts.Player
         private AudioHandler _audioHandler;
 
         private float _lastDump;
+        private bool _dumpBoost;
 
         // Use this for initialization
         void Start () {
@@ -35,6 +36,7 @@ namespace Assets.Scripts.Player
             _boat = GetComponent<Boat>();
             _audioHandler = GetComponent<AudioHandler>();
             _lastDump = Time.time;
+            _dumpBoost = false;
         }
 	
         // Update is called once per frame
@@ -57,12 +59,27 @@ namespace Assets.Scripts.Player
 
                     _audioHandler.Play(_audioHandler.DumpSound);
 
-                    //Todo: Add small boost
+                    _dumpBoost = true;
                 }
             }
 
+            if(Time.time > _lastDump + Constants.DefaultValues.DumpDuration)
+            {
+                _dumpBoost = false;
+            }
+
+            var dumpBoost = _dumpBoost ? 1f + CalculateBoost() : 1f;
+
             // Forward movement
-            _rb.velocity = transform.forward * MovementSpeed * Time.deltaTime;
+            _rb.velocity = transform.forward * MovementSpeed * dumpBoost * Time.deltaTime;
+        }
+
+        private float CalculateBoost()
+        {
+            var timeSinceDump = Time.time - _lastDump;
+            var remaining = (Constants.DefaultValues.DumpDuration - timeSinceDump) / Constants.DefaultValues.DumpDuration;
+
+            return Constants.DefaultValues.DumpBoost * remaining;
         }
     }
 }
