@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.Configuration;
 using UnityEngine;
 
 namespace Assets.Scripts.Dock
@@ -29,6 +30,7 @@ namespace Assets.Scripts.Dock
                 var r = container.RemoveRefugee();
                 if(r == null) continue;
 
+                _waitDictionary[container] = Time.time + Constants.DefaultValues.WaitTimeBetweenDockRemove;
                 ship.gameObject.GetComponent<Boat>().Score += r.Value;
                 Destroy(r.gameObject);
             }
