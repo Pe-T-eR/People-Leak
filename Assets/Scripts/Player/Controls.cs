@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Assets.Scripts.Configuration;
 
 namespace Assets.Scripts.Player
 {
@@ -18,9 +19,11 @@ namespace Assets.Scripts.Player
         public float RayDistance;
         
 
-        private Rigidbody rb;
-        private Boat boat;
-        private AudioHandler audioHandler;
+        private Rigidbody _rb;
+        private Boat _boat;
+        private AudioHandler _audioHandler;
+
+        private float _lastDump;
 
         // Use this for initialization
         void Start () {
@@ -28,9 +31,10 @@ namespace Assets.Scripts.Player
             LeftKey = string.IsNullOrEmpty(LeftKey) ? "a" : LeftKey;
             RightKey = string.IsNullOrEmpty(RightKey) ? "d" : RightKey;
             DumpKey = string.IsNullOrEmpty(DumpKey) ? "space" : DumpKey;
-            rb = GetComponent<Rigidbody>();
-            boat = GetComponent<Boat>();
-            audioHandler.GetComponent<AudioHandler>();
+            _rb = GetComponent<Rigidbody>();
+            _boat = GetComponent<Boat>();
+            _audioHandler = GetComponent<AudioHandler>();
+            _lastDump = Time.time;
         }
 	
         // Update is called once per frame
@@ -42,22 +46,23 @@ namespace Assets.Scripts.Player
             else if (Input.GetKey(RightKey))
                 transform.Rotate(Vector3.up, RoationSpeed*Time.deltaTime);
 
-            if(Input.GetKey(DumpKey))
+            if(Input.GetKey(DumpKey) && Time.time > Constants.DefaultValues.DumpCooldown + _lastDump)
             {
-                var refugee = boat.RefugeeContainer.RemoveRefugee();
+                var refugee = _boat.RefugeeContainer.RemoveRefugee();
 
                 if(refugee != null)
                 {
                     refugee.Dump();
+                    _lastDump = Time.time;
 
-                    audioHandler.Play(audioHandler.DumpSound);
+                    _audioHandler.Play(_audioHandler.DumpSound);
 
                     //Todo: Add small boost
                 }
             }
 
             // Forward movement
-            rb.velocity = transform.forward * MovementSpeed * Time.deltaTime;
+            _rb.velocity = transform.forward * MovementSpeed * Time.deltaTime;
         }
     }
 }
