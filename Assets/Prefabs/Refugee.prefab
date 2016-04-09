@@ -43,7 +43,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 446780}
   - 114: {fileID: 11400562}
-  - 114: {fileID: 11452804}
   - 135: {fileID: 13512942}
   m_Layer: 0
   m_Name: Refugee
@@ -328,20 +327,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Value: 0
   Drowning: 0
---- !u!114 &11452804
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 102806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bba4ad8b02cb86244884f53f4c765afc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DumpSound: {fileID: 8300000, guid: 42e689c2a2aefc649857a169161f1759, type: 3}
-  PickupSound: {fileID: 0}
-  CollisionSound: {fileID: 8300000, guid: 02d9556e401c65340846ded91ab64b3e, type: 3}
 --- !u!114 &11462638
 MonoBehaviour:
   m_ObjectHideFlags: 1

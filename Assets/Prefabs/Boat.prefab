@@ -983,6 +983,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &181916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 464224}
+  m_Layer: 0
+  m_Name: DropPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &182138
 GameObject:
   m_ObjectHideFlags: 1
@@ -1383,7 +1398,7 @@ Transform:
   m_Children:
   - {fileID: 444422}
   m_Father: {fileID: 448392}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &432588
 Transform:
   m_ObjectHideFlags: 1
@@ -1549,11 +1564,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110078}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 12.506978, y: -32.16048, z: 92.106674}
+  m_LocalPosition: {x: 8.368361, y: -0.03, z: -13.452029}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 491784}
   - {fileID: 446506}
+  - {fileID: 464224}
   - {fileID: 430958}
   - {fileID: 461928}
   - {fileID: 469488}
@@ -1676,7 +1692,7 @@ Transform:
   m_Children:
   - {fileID: 447964}
   m_Father: {fileID: 448392}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!4 &463862
 Transform:
   m_ObjectHideFlags: 1
@@ -1689,6 +1705,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 495138}
   m_RootOrder: 1
+--- !u!4 &464224
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 181916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.06, y: 0.339, z: -1.252}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 448392}
+  m_RootOrder: 2
 --- !u!4 &464428
 Transform:
   m_ObjectHideFlags: 1
@@ -1765,7 +1793,7 @@ Transform:
   m_Children:
   - {fileID: 472878}
   m_Father: {fileID: 448392}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!4 &470342
 Transform:
   m_ObjectHideFlags: 1
@@ -3727,6 +3755,7 @@ MonoBehaviour:
   RotationSpeed: 0
   AddSpeedDelay: 0
   Score: 0
+  DropPoint: {fileID: 181916}
   CapacityLevel: 0
   EngineLevel: 0
   AddSpeedLevel: 0
