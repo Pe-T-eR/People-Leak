@@ -2,6 +2,7 @@
 using Assets.Scripts.Configuration;
 using Assets.Scripts.Player;
 using Assets.Scripts.Refugee;
+using Assets.Scripts.CoastGuard;
 
 public class Boat : MonoBehaviour {
 
@@ -48,7 +49,12 @@ public class Boat : MonoBehaviour {
         }
         else if(other.CompareTag(Constants.Tags.CoastGuard))
         {
-
+            var impactForce = CalculateImpact(other.GetComponent<CoastGuardControl>());
+            if(impactForce > 1f)
+            {
+                var audioHandler = _gameMaster.GetComponent<AudioHandler>();
+                audioHandler.Play(audioHandler.CollisionSound);
+            }
         }
         else if(other.CompareTag(Constants.Tags.Refugee))
         {
@@ -92,9 +98,11 @@ public class Boat : MonoBehaviour {
         return impactVector.magnitude;
     }
 
-    private float CalculateImpact()
+    private float CalculateImpact(CoastGuardControl other)
     {
-        return 0f;
+        var impactVector = GetComponentInParent<Controls>().GetVelocity() - other.GetVelocity();
+        Debug.Log(impactVector.magnitude);
+        return impactVector.magnitude;
     }
 
     private bool IsRefugeeDropped(float impact)

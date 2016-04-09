@@ -56,5 +56,10 @@ namespace Assets.Scripts.CoastGuard
                 _waitDictionary[boat] = Time.time + Constants.DefaultValues.TimeBetweenRescue;
             }
         }
+
+        public Vector3 GetVelocity()
+        {
+            return GetComponent<Rigidbody>().velocity;
+        }
     }
 }
