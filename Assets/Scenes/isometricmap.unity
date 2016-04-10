@@ -1810,6 +1810,10 @@ Prefab:
       propertyPath: playerNames.Array.data[1]
       value: Green
       objectReference: {fileID: 0}
+    - target: {fileID: 11403696, guid: e34a086bdc7b347b5986d37ae3f8d1df, type: 2}
+      propertyPath: GameMusic
+      value: 
+      objectReference: {fileID: 117226, guid: 2d75751481b515540b9b0b8f2d98438b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e34a086bdc7b347b5986d37ae3f8d1df, type: 2}
   m_IsPrefabParent: 0
