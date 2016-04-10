@@ -122,7 +122,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 495024, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8228078, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
       propertyPath: m_PlayOnAwake
@@ -136,7 +136,9 @@ Prefab:
       propertyPath: m_PlayAutomatically
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11425710, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
+    - {fileID: 13502254, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &96386843
@@ -176,44 +178,16 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441790, guid: aefd10b5812444399888d8c2660ec072, type: 2}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 441790, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 441790, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 441790, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: DockColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: DockColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: DockColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: DockColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 149566, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: m_Name
-      value: DockAdvanced West
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
       propertyPath: Billboard
       value: 
-      objectReference: {fileID: 1165030890}
+      objectReference: {fileID: 283454270}
+    - target: {fileID: 149566, guid: aefd10b5812444399888d8c2660ec072, type: 2}
+      propertyPath: m_Name
+      value: DockAdvanced West
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefd10b5812444399888d8c2660ec072, type: 2}
   m_IsPrefabParent: 0
@@ -249,19 +223,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1478817214}
     m_Modifications:
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.547299
+      value: 4.4504933
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.50000006
+      value: -5.32067
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 18.215843
+      value: 23.15871
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalRotation.x
@@ -281,7 +255,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_Name
@@ -318,7 +292,36 @@ Transform:
   - {fileID: 911828887}
   - {fileID: 1190755004}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 12
+--- !u!1 &283454270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 283454271}
+  m_Layer: 0
+  m_Name: Billboards West
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283454271
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 283454270}
+  m_LocalRotation: {x: 0, y: -0.5176138, z: 0, w: 0.85561436}
+  m_LocalPosition: {x: -6.63, y: 2.16, z: -10.47}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_Children:
+  - {fileID: 1165030893}
+  - {fileID: 681855586}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1001 &297904262
 Prefab:
   m_ObjectHideFlags: 0
@@ -356,7 +359,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 11
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: LeftKey
@@ -421,19 +424,19 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 283454271}
     m_Modifications:
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.480225
+      value: 15.438924
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.50000006
+      value: -5.5333333
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -6.3674526
+      value: 0.00009894371
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalRotation.x
@@ -441,7 +444,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.5176138
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalRotation.z
@@ -449,7 +452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.85561436
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_RootOrder
@@ -458,6 +461,18 @@ Prefab:
     - target: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
       propertyPath: m_Name
       value: Billboard West
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
@@ -555,7 +570,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 485300, guid: 575d8e37f777640f196edaa512a0be29, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 485300, guid: 575d8e37f777640f196edaa512a0be29, type: 2}
       propertyPath: m_LocalScale.x
@@ -576,6 +591,68 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 575d8e37f777640f196edaa512a0be29, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &681855585
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 283454271}
+    m_Modifications:
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.533333
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 8.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_Name
+      value: Billboard West (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &681855586 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+  m_PrefabInternal: {fileID: 681855585}
 --- !u!1 &777464559
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487174, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11454928, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
       propertyPath: Route
@@ -686,7 +763,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448392, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 110078, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_Name
@@ -710,19 +787,19 @@ Prefab:
       objectReference: {fileID: 1964213079}
     - target: {fileID: 469488, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 461928, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 430958, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 464224, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
@@ -784,6 +861,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1190755004}
   m_RootOrder: 1
+--- !u!1001 &933056709
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1478817214}
+    m_Modifications:
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 9.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.32067
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 25.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0.5176138
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.85561436
+      objectReference: {fileID: 0}
+    - target: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+      propertyPath: m_Name
+      value: Billboard East (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &933056710 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+  m_PrefabInternal: {fileID: 933056709}
 --- !u!1 &997781216
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +985,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 449502, guid: a0548a453be684c159865d7680914359, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6470926, guid: a0548a453be684c159865d7680914359, type: 2}
       propertyPath: m_Enabled
@@ -1152,7 +1279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487174, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
       propertyPath: m_RootOrder
-      value: 16
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 164064, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
       propertyPath: m_Name
@@ -1169,9 +1296,9 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb531c91d6a8d4d479ebd165141526ee, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1165030890 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+--- !u!4 &1165030893 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
   m_PrefabInternal: {fileID: 331021809}
 --- !u!114 &1173203016 stripped
 MonoBehaviour:
@@ -1297,7 +1424,7 @@ Transform:
   m_LocalScale: {x: 0.8735783, y: 0.8735781, z: 0.8735781}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!1 &1272029472 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 110912, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
@@ -1372,7 +1499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22467696, guid: 88f93636e0c2a4c25ad9afa1114784b2, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 22467696, guid: 88f93636e0c2a4c25ad9afa1114784b2, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -1429,6 +1556,35 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 88f93636e0c2a4c25ad9afa1114784b2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1478817213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1478817214}
+  m_Layer: 0
+  m_Name: Billboards East
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1478817214
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1478817213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.997792, y: 5.82067, z: -4.9428663}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1669680867}
+  - {fileID: 933056710}
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
 --- !u!1 &1479065723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1514,32 +1670,16 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!114 &1497748867 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11407566, guid: 88f93636e0c2a4c25ad9afa1114784b2,
     type: 2}
   m_PrefabInternal: {fileID: 1477687148}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
---- !u!1 &1638461861 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 194908, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
-  m_PrefabInternal: {fileID: 80140503}
---- !u!135 &1638461863
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638461861}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 2.64
-  m_Center: {x: 0.18, y: 0, z: 1.13}
---- !u!1 &1669680864 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 154940, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
+--- !u!4 &1669680867 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 485738, guid: 4cb81db13833d4609b41fbb25e4bc320, type: 2}
   m_PrefabInternal: {fileID: 196123023}
 --- !u!114 &1724891316 stripped
 MonoBehaviour:
@@ -1588,7 +1728,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 444604, guid: e34a086bdc7b347b5986d37ae3f8d1df, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 11422884, guid: e34a086bdc7b347b5986d37ae3f8d1df, type: 2}
       propertyPath: playerBoats.Array.data[0]
@@ -1719,8 +1859,12 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441790, guid: aefd10b5812444399888d8c2660ec072, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
+      propertyPath: Billboard
+      value: 
+      objectReference: {fileID: 1478817213}
     - target: {fileID: 149566, guid: aefd10b5812444399888d8c2660ec072, type: 2}
       propertyPath: m_Name
       value: DockAdvanced East
@@ -1737,14 +1881,6 @@ Prefab:
       propertyPath: DockColor.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: DockColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11440420, guid: aefd10b5812444399888d8c2660ec072, type: 2}
-      propertyPath: Billboard
-      value: 
-      objectReference: {fileID: 1669680864}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefd10b5812444399888d8c2660ec072, type: 2}
   m_IsPrefabParent: 0

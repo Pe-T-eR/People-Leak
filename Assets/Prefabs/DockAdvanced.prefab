@@ -98,8 +98,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149566}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.6600003, y: -1.2640002, z: 1.3567991}
+  m_LocalRotation: {x: 0, y: 0.7802534, z: 0, w: 0.62546355}
+  m_LocalPosition: {x: -4, y: 0.46, z: -8.22}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 428740}
@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4141079b7d4dc5f4086e93b6ef069329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DockColor: {r: 0, g: 0, b: 0, a: 1}
+  Billboard: {fileID: 0}
 --- !u!135 &13580918
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -82,11 +82,14 @@ namespace Assets.Scripts.Refugee
         /// </summary>
         public void PickUp()
         {
-            transform.FindChild("RefugeeBody").gameObject.SetActive(false);
-            transform.position = Constants.DefaultValues.AwayPosition;
-            Drowning = false;
+            if (_lifetime < Constants.DefaultValues.RefugeeLifespan - 1f)
+            {
+                transform.FindChild("RefugeeBody").gameObject.SetActive(false);
+                transform.position = Constants.DefaultValues.AwayPosition;
+                Drowning = false;
 
-            _audioHandler.Play(_audioHandler.PickupSound);
+                _audioHandler.Play(_audioHandler.PickupSound);
+            }            
         }
 
         public void OnTriggerEnter(Collider other)

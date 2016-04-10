@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.Configuration;
 using UnityEngine;
+using System.Linq;
 
 namespace Assets.Scripts.Dock
 {
@@ -22,7 +23,10 @@ namespace Assets.Scripts.Dock
             _audioHandler = _gameMaster.GetComponent<AudioHandler>();
 
             if (Billboard != null) {
-				Billboard.GetComponent<Renderer>().material.color = DockColor;
+                foreach (var r in Billboard.GetComponentsInChildren<Renderer>())
+                { 
+				    r.material.color = DockColor;
+                }
 			}
         }
 
