@@ -95,9 +95,15 @@ namespace Assets.Scripts.Refugee
         public void OnTriggerEnter(Collider other)
         {
             if (other.tag == Constants.Tags.Player)
+            {
                 if (other.gameObject.GetComponent<RefugeeContainer>().TryAddRefugee(this))
                     PickUp();
-
+            }
+            else if (other.CompareTag(Constants.Tags.CoastGuard))
+            {
+                PickUp();
+                Destroy(gameObject);
+            }
         }
     }
 }
