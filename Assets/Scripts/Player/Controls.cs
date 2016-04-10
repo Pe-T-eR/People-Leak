@@ -9,14 +9,24 @@ namespace Assets.Scripts.Player
         public string LeftKey;
         [Tooltip("Keycode for moving right")]
         public string RightKey;
+		[Tooltip("Keycode for moving forward")]
+		public string ForwardKey;
+		[Tooltip("Keycode for moving backward")]
+		public string BackwardKey;
         [Tooltip("Keycode for dumping refugees")]
         public string DumpKey;
         [Tooltip("Defines a realtive rotation speed")]
         public float RoationSpeed;
         [Tooltip("Defines a relative movement speed")]
         public float MovementSpeed;
+		[Tooltip("Defines a relative movement speed when moving backward")]
+		public float MovementSpeedBackward;
+		[Tooltip("Defines the boat drag")]
+		public float Drag;
         [Tooltip("How close the boat can get to a blocking element")]
         public float RayDistance;
+		[Tooltip("The minimum velocity for the boat to turn")]
+		public float MinimumTurnVelocity;
 
         public Transform DropPoint { get; set; }
 
@@ -32,6 +42,8 @@ namespace Assets.Scripts.Player
             // Default movement
             LeftKey = string.IsNullOrEmpty(LeftKey) ? "a" : LeftKey;
             RightKey = string.IsNullOrEmpty(RightKey) ? "d" : RightKey;
+			ForwardKey = string.IsNullOrEmpty(ForwardKey) ? "w" : ForwardKey;
+			BackwardKey = string.IsNullOrEmpty(BackwardKey) ? "s" : BackwardKey;
             DumpKey = string.IsNullOrEmpty(DumpKey) ? "space" : DumpKey;
             _rb = GetComponent<Rigidbody>();
             _boat = GetComponent<Boat>();
@@ -47,6 +59,7 @@ namespace Assets.Scripts.Player
                 transform.Rotate(Vector3.up, -RoationSpeed*Time.deltaTime);
             else if (Input.GetKey(RightKey))
                 transform.Rotate(Vector3.up, RoationSpeed*Time.deltaTime);
+			var direction = Input.GetKey(ForwardKey) ? 1.0f : Input.GetKey(BackwardKey) ? - MovementSpeedBackward : 0.0f;
 
             if(Input.GetKey(DumpKey) && Time.time > Constants.DefaultValues.DumpCooldown + _lastDump)
             {
@@ -69,8 +82,10 @@ namespace Assets.Scripts.Player
 
             var dumpBoost = _dumpBoost ? 1f + CalculateBoost() : 1f;
 
-            // Forward movement
-            _rb.velocity = transform.forward * MovementSpeed * dumpBoost * Time.deltaTime;
+			_rb.velocity = transform.forward.normalized * _rb.velocity.magnitude;
+			_rb.AddForce(transform.forward.normalized * MovementSpeed * dumpBoost * Time.deltaTime * direction);
+			var drag = _rb.velocity.magnitude * _rb.velocity.magnitude * Drag * Time.deltaTime;
+			_rb.AddForce(transform.forward.normalized * drag * -1);
         }
 
         private float CalculateBoost()
