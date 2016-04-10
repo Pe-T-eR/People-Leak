@@ -375,7 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: DumpKey
-      value: right shift
+      value: space
       objectReference: {fileID: 0}
     - target: {fileID: 8277320, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: panLevelCustomCurve.m_RotationOrder
@@ -824,6 +824,10 @@ Prefab:
     - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
       propertyPath: MovementSpeedBackward
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482892, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
+      propertyPath: DumpKey
+      value: left shift
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ce62045d073540368979a19b2695bcc, type: 2}
