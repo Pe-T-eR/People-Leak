@@ -577,10 +577,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\n\nTransport the refugees to the euroopean city, that matches the color
-    og their shirts.\n\n\nControls\n\nRed player: Turn using A and D, dump refugee
-    on space.\n\nGreen player: Turn using arrow keys, dump refugee on shift.\n\n -
-    Press space to start the game - \n\n"
+  m_Text: "\n\nTransport the refugees to the european city, that matches the color
+    of their shirts. First to get 100$ wins!\n\n\nControls\n\nRed player: Move using
+    W, A and D, dump refugee on shift.\n\nGreen player: Move using arrow keys, dump
+    refugee on space.\n\n - Press space to start the game - \n\n"
 --- !u!222 &1863051598
 CanvasRenderer:
   m_ObjectHideFlags: 0
