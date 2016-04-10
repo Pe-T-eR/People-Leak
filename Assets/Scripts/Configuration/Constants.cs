@@ -49,7 +49,7 @@ namespace Assets.Scripts.Configuration
             public const float AddSpeedUpgradeEffet = 0.3f;      
             
             // Coast guard
-            public const float TimeBetweenRescue = 0.5f;
+            public const float TimeBetweenRescue = 1f;
 
             public static readonly Vector3 AwayPosition = new Vector3(0,0,60);
         }

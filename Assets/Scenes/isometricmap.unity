@@ -217,10 +217,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aefd10b5812444399888d8c2660ec072, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &161240784 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 167004, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
-  m_PrefabInternal: {fileID: 80140503}
 --- !u!1 &186941124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,18 +1525,6 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 194908, guid: c3a00fca2167946c09378a1b8cd1f822, type: 2}
   m_PrefabInternal: {fileID: 80140503}
---- !u!114 &1638461862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1638461861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b55957bdeb584c40b252d31ff64bcb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Welder: {fileID: 161240784}
 --- !u!135 &1638461863
 SphereCollider:
   m_ObjectHideFlags: 0

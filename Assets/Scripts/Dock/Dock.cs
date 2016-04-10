@@ -28,7 +28,13 @@ namespace Assets.Scripts.Dock
         protected void OnTriggerExit(Collider other)
         {
             if (other.gameObject.tag == Constants.Tags.Player)
-                DockedBoats.Remove(other.GetComponent<Boat>());
+            {
+                var boat = other.GetComponent<Boat>();
+                if (DockedBoats.Contains(boat))
+                {
+                    DockedBoats.Remove(other.GetComponent<Boat>());
+                }
+            }
         }
     }
 }

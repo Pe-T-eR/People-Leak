@@ -27,7 +27,24 @@ public class UpgradeEngineDock : Dock
         if (other.CompareTag(Constants.Tags.Player))
         {
             var boat = other.GetComponent<Boat>();
-            _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForEngineUpgrade * boat.EngineLevel;
+            if (!_waitDictionary.ContainsKey(boat))
+            {
+                _waitDictionary[boat] = Time.time + Constants.DefaultValues.WaitForEngineUpgrade * boat.EngineLevel;
+            }
+        }
+    }
+
+    new void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
+
+        if(other.CompareTag(Constants.Tags.Player))
+        {
+            var boat = other.GetComponent<Boat>();
+            if(_waitDictionary.ContainsKey(boat))
+            {
+                _waitDictionary.Remove(boat);
+            }
         }
     }
 
