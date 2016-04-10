@@ -86,7 +86,8 @@ public class Boat : MonoBehaviour {
 
                 if(droppedRefugee != null)
                 {
-                    droppedRefugee.Dump(transform.TransformPoint(DropPosition.position));
+                    var dropPos = transform.position + transform.forward * -2 + new Vector3(0, 0.6f, 0);
+                    droppedRefugee.Dump(dropPos);
                 }
             }
         }
