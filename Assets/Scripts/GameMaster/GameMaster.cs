@@ -17,17 +17,11 @@ public class GameMaster : MonoBehaviour {
 	public int goalScore;
 	public Text winningText;
 
-    public GameObject GameMusic;
-
 	protected bool gameover = false;
 
 	// Use this for initialization
 	void Start ()
 	{
-	    var music = GameObject.FindGameObjectWithTag(Constants.Tags.Music);
-		if (music == null) {
-	        DontDestroyOnLoad(Instantiate(GameMusic).transform);
-		}
 
 		ResetGame();
 
@@ -103,6 +97,6 @@ public class GameMaster : MonoBehaviour {
     private static IEnumerator RestartScene()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Menu");
     } 
 }
